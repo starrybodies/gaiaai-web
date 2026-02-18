@@ -226,7 +226,7 @@ export function Globe({ className }: { className?: string }) {
     <div className={className} style={{ width: "100%", height: "100%" }}>
       <Suspense fallback={null}>
         <Canvas
-          camera={{ position: [0, 0, 4.8], fov: 35 }}
+          camera={{ position: [0, 0, 5.8], fov: 32 }}
           style={{ background: "transparent" }}
           gl={{ alpha: true, antialias: true }}
         >

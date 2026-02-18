@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, JetBrains_Mono, Share_Tech_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -15,16 +8,9 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const shareTechMono = Share_Tech_Mono({
-  variable: "--font-matrix",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://gaiaai.xyz"),
-  title: "Gaia AI — Intelligence in Service of the Living World",
+  title: "Gaia AI — Artificial Intelligence in Service to the Living World",
   description:
     "Gaia AI fuses agentic AI with ecological blockchain infrastructure to make environmental data legible, actionable, and economically viable.",
   keywords: [
@@ -43,7 +29,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Gaia AI — Intelligence in Service of the Living World",
+    title: "Gaia AI — Artificial Intelligence in Service to the Living World",
     description:
       "Agentic AI meets ecological blockchain infrastructure for the regenerative economy.",
     type: "website",
@@ -52,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gaia AI — Intelligence in Service of the Living World",
+    title: "Gaia AI — Artificial Intelligence in Service to the Living World",
     description:
       "Agentic AI meets ecological blockchain infrastructure for the regenerative economy.",
     images: ["/gaia-coded.gif"],
@@ -67,15 +53,23 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <style dangerouslySetInnerHTML={{ __html: `html{scroll-behavior:auto}` }} />
         <script
           dangerouslySetInnerHTML={{
-            __html: `history.scrollRestoration="manual";window.scrollTo(0,0);(function(){try{var t=localStorage.getItem("gaia-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`,
+            __html: [
+              `if(history.scrollRestoration)history.scrollRestoration="manual";`,
+              `window.scrollTo(0,0);`,
+              `document.documentElement.style.overflow="hidden";`,
+              `window.addEventListener("load",function(){`,
+              `  window.scrollTo(0,0);`,
+              `  document.documentElement.style.overflow="";`,
+              `});`,
+              `(function(){try{var t=localStorage.getItem("gaia-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`,
+            ].join(""),
           }}
         />
       </head>
-      <body
-        className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${shareTechMono.variable} antialiased`}
-      >
+      <body className={`${jetbrainsMono.variable} antialiased`}>
         {children}
       </body>
     </html>
