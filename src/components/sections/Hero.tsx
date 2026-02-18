@@ -39,7 +39,7 @@ export function Hero() {
       {/* Green glow accent */}
       <div className="absolute inset-0 bg-gradient-to-br from-green/[0.04] via-transparent to-transparent pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-28 pb-20 w-full">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-20 pb-20 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Text */}
           <div>
@@ -65,9 +65,9 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="font-bold text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[1.08] tracking-[-0.02em] mb-6 text-glow"
             >
-              Intelligence in
+              Artificial Intelligence
               <br />
-              service of the{" "}
+              in service to the{" "}
               <span className="text-gradient">living world</span>
             </motion.h1>
 

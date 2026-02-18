@@ -76,7 +76,7 @@ function Particles() {
 }
 
 function WireframeGlobe() {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef<THREE.Group>(null);
 
   useFrame((_state, delta) => {
     if (meshRef.current) {
@@ -85,10 +85,18 @@ function WireframeGlobe() {
   });
 
   return (
-    <mesh ref={meshRef}>
-      <sphereGeometry args={[RADIUS, SEGMENTS, SEGMENTS]} />
-      <meshBasicMaterial color="#00E87B" wireframe opacity={0.06} transparent />
-    </mesh>
+    <group ref={meshRef}>
+      {/* Solid fill sphere */}
+      <mesh>
+        <sphereGeometry args={[RADIUS * 0.995, SEGMENTS, SEGMENTS]} />
+        <meshBasicMaterial color="#041A10" transparent opacity={0.95} />
+      </mesh>
+      {/* Wireframe overlay */}
+      <mesh>
+        <sphereGeometry args={[RADIUS, SEGMENTS, SEGMENTS]} />
+        <meshBasicMaterial color="#00E87B" wireframe opacity={0.15} transparent />
+      </mesh>
+    </group>
   );
 }
 
@@ -99,7 +107,7 @@ function InnerGlow() {
       <meshBasicMaterial
         color="#00E87B"
         transparent
-        opacity={0.02}
+        opacity={0.05}
       />
     </mesh>
   );
@@ -109,20 +117,20 @@ function Atmosphere() {
   return (
     <>
       <mesh>
-        <sphereGeometry args={[RADIUS * 1.08, 32, 32]} />
+        <sphereGeometry args={[RADIUS * 1.05, 32, 32]} />
         <meshBasicMaterial
           color="#00E87B"
           transparent
-          opacity={0.04}
+          opacity={0.06}
           side={THREE.BackSide}
         />
       </mesh>
       <mesh>
-        <sphereGeometry args={[RADIUS * 1.15, 32, 32]} />
+        <sphereGeometry args={[RADIUS * 1.12, 32, 32]} />
         <meshBasicMaterial
           color="#00E87B"
           transparent
-          opacity={0.02}
+          opacity={0.03}
           side={THREE.BackSide}
         />
       </mesh>
