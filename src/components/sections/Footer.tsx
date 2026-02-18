@@ -82,8 +82,22 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Zora banner */}
+        <div className="mt-12 pt-8 border-t border-border">
+          <a
+            href="https://zora.co/@gaiaai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center gap-3 py-3 text-sm text-amber/70 hover:text-amber transition-colors"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />
+            Support Gaia — Buy our Creator Token on Zora
+            <span className="text-xs">&#8599;</span>
+          </a>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+        <div className="mt-4 pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
           <span>Built for the living world</span>
           <span className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-green" />

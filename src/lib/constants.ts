@@ -129,6 +129,7 @@ export const SOCIAL_LINKS = [
   { label: "Facebook", href: "https://facebook.com/gaiaai", icon: "facebook" },
   { label: "Manifold NFTs", href: "https://manifold.gallery/gaiaai", icon: "manifold" },
   { label: "GitHub", href: "https://github.com/gaiaaiagent", icon: "github" },
+  { label: "Zora", href: "https://zora.co/@gaiaai", icon: "zora" },
 ] as const;
 
 export const FOOTER_LINKS = {
@@ -154,6 +155,7 @@ export const FOOTER_LINKS = {
     { label: "Facebook", href: "https://facebook.com/gaiaai" },
     { label: "Manifold NFTs", href: "https://manifold.gallery/gaiaai" },
     { label: "GitHub", href: "https://github.com/gaiaaiagent" },
+    { label: "Zora Creator Token", href: "https://zora.co/@gaiaai" },
     { label: "hello@gaiaai.xyz", href: "mailto:hello@gaiaai.xyz" },
   ],
 } as const;

@@ -18,6 +18,53 @@
   --font-sans: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
   --font-serif: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
   --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-heading: var(--font-matrix), "Share Tech Mono", monospace;
+}
+
+/* Light mode overrides */
+[data-theme="light"] {
+  --color-background: #F4F7F5;
+  --color-foreground: #1A2B22;
+  --color-surface: #E8EDE9;
+  --color-surface-light: #DDE5DF;
+  --color-surface-lighter: #D0DAD3;
+  --color-border: #B8C9BD;
+  --color-muted: #5E7A68;
+  --color-green: #00A85A;
+  --color-green-dim: rgba(0, 168, 90, 0.10);
+  --color-green-glow: rgba(0, 168, 90, 0.20);
+  --color-cyan: #0098B0;
+  --color-cyan-dim: rgba(0, 152, 176, 0.08);
+  --color-amber: #C88820;
+  --color-amber-dim: rgba(200, 136, 32, 0.08);
+}
+
+[data-theme="light"] body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+[data-theme="light"] .text-gradient {
+  background: linear-gradient(135deg, #00A85A 0%, #0098B0 50%, #00A85A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .text-glow {
+  text-shadow: 0 0 20px rgba(0, 168, 90, 0.15), 0 0 40px rgba(0, 168, 90, 0.05);
+}
+
+[data-theme="light"] ::selection {
+  background: rgba(0, 168, 90, 0.2);
+  color: #1A2B22;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 168, 90, 0.2);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 168, 90, 0.4);
 }
 
 html {
@@ -32,6 +79,13 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Matrix-style headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 /* Scrollbar — green on black */

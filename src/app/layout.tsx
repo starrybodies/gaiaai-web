@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -12,6 +12,13 @@ const instrumentSerif = Instrument_Serif({
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const shareTechMono = Share_Tech_Mono({
+  variable: "--font-matrix",
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
@@ -58,9 +65,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `history.scrollRestoration="manual";window.scrollTo(0,0);(function(){try{var t=localStorage.getItem("gaia-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body
-        className={`${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${shareTechMono.variable} antialiased`}
       >
         {children}
       </body>

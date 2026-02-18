@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/Navigation";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { CursorTrail } from "@/components/ui/CursorTrail";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -19,7 +20,7 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <>
+    <ThemeProvider>
       <CursorTrail />
       <Navigation />
       <main>
@@ -40,6 +41,6 @@ export default function Home() {
         <Community />
       </main>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }

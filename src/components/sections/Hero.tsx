@@ -16,12 +16,6 @@ export function Hero() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Force scroll to top on page load
-    window.history.scrollRestoration = "manual";
-    window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
     window.addEventListener("resize", check);
@@ -99,6 +93,15 @@ export function Hero() {
               >
                 Talk to Gaia
                 <ArrowDown size={15} className="transition-transform group-hover:translate-y-0.5" />
+              </a>
+              <a
+                href="https://zora.co/@gaiaai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5 rounded-md border border-amber/30 bg-amber/10 px-7 py-3.5 text-[14px] font-semibold text-amber transition-all hover:bg-amber/20 hover:border-amber/50 hover:shadow-[0_0_25px_rgba(240,168,48,0.2)]"
+              >
+                Support on Zora
+                <span className="text-[11px] opacity-70">&#9670;</span>
               </a>
               <a
                 href="#greenpaper"

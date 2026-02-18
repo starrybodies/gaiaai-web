@@ -12,6 +12,7 @@ const ICON_MAP: Record<string, string> = {
   facebook: "fb",
   manifold: "MF",
   github: "GH",
+  zora: "Z",
 };
 
 export function Community() {
@@ -39,8 +40,36 @@ export function Community() {
           </ScrollReveal>
         </div>
 
+        {/* Zora CTA Banner */}
+        <ScrollReveal delay={0.25}>
+          <a
+            href="https://zora.co/@gaiaai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block rounded-2xl border border-amber/20 bg-gradient-to-r from-amber/[0.06] via-green/[0.04] to-amber/[0.06] p-8 mb-12 max-w-2xl mx-auto text-center transition-all hover:border-amber/40 hover:shadow-[0_0_40px_rgba(240,168,48,0.1)] overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="relative">
+              <div className="text-[10px] text-amber/60 uppercase tracking-[0.3em] font-mono font-bold mb-3">
+                Support the Mission
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground/90 mb-2">
+                Buy the Gaia Creator Token
+              </h3>
+              <p className="text-sm text-muted leading-relaxed mb-4">
+                Fuel planetary regeneration. Every token supports Gaia&apos;s mission to make
+                environmental intelligence accessible to all.
+              </p>
+              <span className="inline-flex items-center gap-2 rounded-md bg-amber/15 border border-amber/30 px-5 py-2.5 text-sm font-bold text-amber group-hover:bg-amber/25 group-hover:border-amber/50 transition-all">
+                zora.co/@gaiaai
+                <span className="text-[13px]">&#8599;</span>
+              </span>
+            </div>
+          </a>
+        </ScrollReveal>
+
         <StaggerContainer
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 max-w-4xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 max-w-5xl mx-auto"
           staggerDelay={0.08}
         >
           {SOCIAL_LINKS.map((link) => (
