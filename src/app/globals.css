@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #030806;
+  --color-foreground: #C8E6C9;
+  --color-surface: #071210;
+  --color-surface-light: #0C1A16;
+  --color-surface-lighter: #122420;
+  --color-border: #1A332A;
+  --color-muted: #5E8A72;
+  --color-green: #00E87B;
+  --color-green-dim: rgba(0, 232, 123, 0.10);
+  --color-green-glow: rgba(0, 232, 123, 0.25);
+  --color-cyan: #00C8E0;
+  --color-cyan-dim: rgba(0, 200, 224, 0.08);
+  --color-amber: #F0A830;
+  --color-amber-dim: rgba(240, 168, 48, 0.08);
+  --font-sans: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+  --font-serif: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  overflow-y: scroll;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar — green on black */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 232, 123, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 232, 123, 0.4);
+}
+
+/* Scan line animation */
+@keyframes scan-line {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* Typing dots */
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* Slow pan for background images */
+@keyframes slow-pan {
+  0% { transform: scale(1.1) translate(0, 0); }
+  50% { transform: scale(1.15) translate(-1%, -0.5%); }
+  100% { transform: scale(1.1) translate(0, 0); }
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Gradient text — green dominant */
+.text-gradient {
+  background: linear-gradient(135deg, #00E87B 0%, #00C8E0 50%, #00E87B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Green glow text */
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 232, 123, 0.3), 0 0 40px rgba(0, 232, 123, 0.1);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 232, 123, 0.25);
+  color: #fff;
+}
+
+/* Focus ring — green glow for keyboard navigation */
+:focus-visible {
+  outline: 2px solid rgba(0, 232, 123, 0.5);
+  outline-offset: 2px;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(0, 232, 123, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth anchor scrolling offset for fixed nav */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Nature image overlay base */
+.bg-nature {
+  position: relative;
+  overflow: hidden;
+}
+.bg-nature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: slow-pan 30s ease-in-out infinite;
+  z-index: 0;
+}
+.bg-nature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(3, 8, 6, 0.85) 0%, rgba(3, 8, 6, 0.92) 50%, rgba(3, 8, 6, 0.85) 100%);
+  z-index: 1;
+}
+.bg-nature > * {
+  position: relative;
+  z-index: 2;
 }
