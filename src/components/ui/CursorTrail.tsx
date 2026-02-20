@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
+import { useTheme } from "../ThemeProvider";
 
 interface Particle {
   x: number;
@@ -16,11 +17,19 @@ interface Particle {
 }
 
 export function CursorTrail() {
+  const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particles = useRef<Particle[]>([]);
   const mouse = useRef({ x: -100, y: -100 });
   const animFrame = useRef<number>(0);
   const lastSpawn = useRef(0);
+  const greenColor = useRef("#00E87B");
+
+  useEffect(() => {
+    greenColor.current = getComputedStyle(document.documentElement)
+      .getPropertyValue("--color-green")
+      .trim() || "#00E87B";
+  }, [theme]);
 
   const drawLeaf = useCallback(
     (
@@ -35,7 +44,7 @@ export function CursorTrail() {
       ctx.translate(x, y);
       ctx.rotate(rotation);
       ctx.globalAlpha = alpha;
-      ctx.fillStyle = "#00E87B";
+      ctx.fillStyle = greenColor.current;
       ctx.beginPath();
       ctx.moveTo(0, -size);
       ctx.quadraticCurveTo(size * 0.6, -size * 0.3, size * 0.3, size * 0.3);
@@ -115,7 +124,7 @@ export function CursorTrail() {
           drawLeaf(ctx, p.x, p.y, p.size, p.rotation, alpha);
         } else {
           ctx.globalAlpha = alpha;
-          ctx.fillStyle = "#00E87B";
+          ctx.fillStyle = greenColor.current;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
           ctx.fill();
@@ -140,7 +149,7 @@ export function CursorTrail() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-[9999]"
-      style={{ mixBlendMode: "screen" }}
+      style={{ mixBlendMode: theme === "dark" ? "screen" : "multiply" }}
     />
   );
 }

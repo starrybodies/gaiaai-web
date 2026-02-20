@@ -22,7 +22,7 @@ export function GlobePlaceholder({ className }: { className?: string }) {
           height: "80%",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(0,232,123,0.08) 0%, transparent 70%)",
+            "radial-gradient(circle, var(--color-green-dim) 0%, transparent 70%)",
           animation: "globe-pulse 4s ease-in-out infinite",
         }}
       />
@@ -33,9 +33,9 @@ export function GlobePlaceholder({ className }: { className?: string }) {
           maxWidth: 350,
           aspectRatio: "1",
           borderRadius: "50%",
-          border: "1px solid rgba(0,232,123,0.2)",
+          border: "1px solid var(--color-green-glow)",
           background:
-            "radial-gradient(circle at 30% 30%, rgba(0,232,123,0.1) 0%, transparent 60%)",
+            "radial-gradient(circle at 30% 30%, var(--color-green-dim) 0%, transparent 60%)",
           position: "relative",
           overflow: "hidden",
         }}
@@ -50,7 +50,7 @@ export function GlobePlaceholder({ className }: { className?: string }) {
               left: "5%",
               right: "5%",
               height: 1,
-              background: "rgba(0,232,123,0.1)",
+              background: "var(--color-green-dim)",
             }}
           />
         ))}
@@ -63,7 +63,7 @@ export function GlobePlaceholder({ className }: { className?: string }) {
               top: "5%",
               bottom: "5%",
               width: 1,
-              background: "rgba(0,232,123,0.1)",
+              background: "var(--color-green-dim)",
             }}
           />
         ))}
@@ -83,8 +83,8 @@ export function GlobePlaceholder({ className }: { className?: string }) {
               width: 4,
               height: 4,
               borderRadius: "50%",
-              background: "#00E87B",
-              boxShadow: "0 0 8px rgba(0,232,123,0.5)",
+              background: "var(--color-green)",
+              boxShadow: "0 0 8px var(--color-green-glow)",
             }}
           />
         ))}

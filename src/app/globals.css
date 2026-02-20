@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --color-background: #030806;
   --color-foreground: #C8E6C9;
   --color-surface: #071210;
@@ -38,32 +38,11 @@
   --color-amber-dim: rgba(200, 136, 32, 0.08);
 }
 
-[data-theme="light"] body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-}
-
 [data-theme="light"] .text-gradient {
-  background: linear-gradient(135deg, #00A85A 0%, #0098B0 50%, #00A85A 100%);
+  background: linear-gradient(135deg, var(--color-green) 0%, var(--color-cyan) 50%, var(--color-green) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-[data-theme="light"] .text-glow {
-  text-shadow: 0 0 20px rgba(0, 168, 90, 0.15), 0 0 40px rgba(0, 168, 90, 0.05);
-}
-
-[data-theme="light"] ::selection {
-  background: rgba(0, 168, 90, 0.2);
-  color: #1A2B22;
-}
-
-[data-theme="light"] ::-webkit-scrollbar-thumb {
-  background: rgba(0, 168, 90, 0.2);
-}
-[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 168, 90, 0.4);
 }
 
 html {
@@ -87,7 +66,7 @@ h1, h2, h3, h4 {
   letter-spacing: 0.04em;
 }
 
-/* Scrollbar — green on black */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -95,11 +74,11 @@ h1, h2, h3, h4 {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 232, 123, 0.2);
+  background: var(--color-green-dim);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 232, 123, 0.4);
+  background: var(--color-green-glow);
 }
 
 /* Scan line animation */
@@ -129,7 +108,7 @@ h1, h2, h3, h4 {
 
 /* Gradient text — green dominant */
 .text-gradient {
-  background: linear-gradient(135deg, #00E87B 0%, #00C8E0 50%, #00E87B 100%);
+  background: linear-gradient(135deg, var(--color-green) 0%, var(--color-cyan) 50%, var(--color-green) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,23 +116,23 @@ h1, h2, h3, h4 {
 
 /* Green glow text */
 .text-glow {
-  text-shadow: 0 0 20px rgba(0, 232, 123, 0.3), 0 0 40px rgba(0, 232, 123, 0.1);
+  text-shadow: 0 0 20px var(--color-green-glow), 0 0 40px var(--color-green-dim);
 }
 
 /* Selection */
 ::selection {
-  background: rgba(0, 232, 123, 0.25);
-  color: #fff;
+  background: var(--color-green-glow);
+  color: var(--color-foreground);
 }
 
-/* Focus ring — green glow for keyboard navigation */
+/* Focus ring */
 :focus-visible {
-  outline: 2px solid rgba(0, 232, 123, 0.5);
+  outline: 2px solid var(--color-green-glow);
   outline-offset: 2px;
 }
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid rgba(0, 232, 123, 0.5);
+  outline: 2px solid var(--color-green-glow);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -181,7 +160,7 @@ button:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(3, 8, 6, 0.85) 0%, rgba(3, 8, 6, 0.92) 50%, rgba(3, 8, 6, 0.85) 100%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-background) 85%, transparent) 0%, color-mix(in srgb, var(--color-background) 92%, transparent) 50%, color-mix(in srgb, var(--color-background) 85%, transparent) 100%);
   z-index: 1;
 }
 .bg-nature > * {

@@ -30,7 +30,7 @@ export function RegenDigest() {
                 frameBorder="0"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
-                style={{ borderRadius: "12px", background: "#071210" }}
+                style={{ borderRadius: "12px", background: "var(--color-surface)" }}
                 title="Regen Digest Podcast"
               />
             </div>
