@@ -1,6 +1,3 @@
-import { Navigation } from "@/components/Navigation";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { CursorTrail } from "@/components/ui/CursorTrail";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { TalkToGaia } from "@/components/sections/TalkToGaia";
@@ -16,31 +13,25 @@ import { Gaiachads } from "@/components/sections/Gaiachads";
 import { Greenpaper } from "@/components/sections/Greenpaper";
 import { BuildWithGaia } from "@/components/sections/BuildWithGaia";
 import { Community } from "@/components/sections/Community";
-import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <ThemeProvider>
-      <CursorTrail />
-      <Navigation />
-      <main>
-        <Hero />
-        <About />
-        <TalkToGaia />
-        <Ecosystem />
-        <HowItWorks />
-        <PROI />
-        <GaiaIRL />
-        <GaianTimes />
-        <RegenDigest />
-        <Talks />
-        <SymbioceneticFutures />
-        <Gaiachads />
-        <Greenpaper />
-        <BuildWithGaia />
-        <Community />
-      </main>
-      <Footer />
-    </ThemeProvider>
+    <main>
+      <Hero />
+      <About />
+      <TalkToGaia />
+      <Ecosystem />
+      <HowItWorks />
+      <PROI />
+      <GaiaIRL />
+      <GaianTimes />
+      <RegenDigest />
+      <Talks />
+      <SymbioceneticFutures />
+      <Gaiachads />
+      <Greenpaper />
+      <BuildWithGaia />
+      <Community />
+    </main>
   );
 }
