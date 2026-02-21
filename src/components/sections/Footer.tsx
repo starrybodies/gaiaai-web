@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FOOTER_LINKS } from "@/lib/constants";
 
 export function Footer() {
@@ -32,12 +33,21 @@ export function Footer() {
             <ul className="space-y-3">
               {FOOTER_LINKS.navigation.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
