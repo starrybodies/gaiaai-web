@@ -1,9 +1,9 @@
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Talk to Gaia", href: "#talk-to-gaia" },
-  { label: "Ecosystem", href: "#ecosystem" },
-  { label: "Greenpaper", href: "#greenpaper" },
-  { label: "Community", href: "#community" },
+  { label: "Ecosystem", href: "/ecosystem" },
+  { label: "Knowledge", href: "/knowledge" },
+  { label: "Community", href: "/community" },
 ] as const;
 
 export const ECOSYSTEM_PROJECTS = [
@@ -136,10 +136,10 @@ export const FOOTER_LINKS = {
   navigation: [
     { label: "About", href: "#about" },
     { label: "Talk to Gaia", href: "#talk-to-gaia" },
-    { label: "Ecosystem", href: "#ecosystem" },
-    { label: "PROI", href: "#proi" },
-    { label: "Greenpaper", href: "#greenpaper" },
-    { label: "Community", href: "#community" },
+    { label: "Ecosystem", href: "/ecosystem" },
+    { label: "PROI", href: "/knowledge#proi" },
+    { label: "Greenpaper", href: "/knowledge#greenpaper" },
+    { label: "Community", href: "/community" },
   ],
   resources: [
     { label: "Greenpaper", href: "https://github.com/gaiaaiagent/greenpaper" },

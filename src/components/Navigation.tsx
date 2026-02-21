@@ -3,9 +3,14 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useTheme } from "./ThemeProvider";
+
+function isAnchorLink(href: string) {
+  return href.startsWith("#");
+}
 
 function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
   if (!href.startsWith("#")) return;
@@ -16,6 +21,38 @@ function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
   }
   const el = document.querySelector(href);
   if (el) el.scrollIntoView({ behavior: "smooth" });
+}
+
+function NavLink({
+  href,
+  className,
+  onClick,
+  children,
+}: {
+  href: string;
+  className?: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+}) {
+  if (isAnchorLink(href)) {
+    return (
+      <a
+        href={href}
+        onClick={(e) => {
+          smoothScroll(e, href);
+          onClick?.();
+        }}
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} onClick={onClick} className={className}>
+      {children}
+    </Link>
+  );
 }
 
 export function Navigation() {
@@ -45,7 +82,7 @@ export function Navigation() {
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="#" onClick={(e) => smoothScroll(e, "#")} className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <Image
             src="/gaia-logo.png"
             alt="Gaia AI"
@@ -56,19 +93,18 @@ export function Navigation() {
           <span className="text-xl font-bold tracking-tight text-green">
             GAIA AI
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a
+            <NavLink
               key={link.href}
               href={link.href}
-              onClick={(e) => smoothScroll(e, link.href)}
               className="text-sm text-muted hover:text-foreground transition-colors"
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </div>
 
@@ -105,14 +141,14 @@ export function Navigation() {
         <div className="md:hidden fixed inset-0 top-[72px] bg-background/95 backdrop-blur-xl z-40">
           <div className="flex flex-col gap-1 p-6">
             {NAV_LINKS.map((link) => (
-              <a
+              <NavLink
                 key={link.href}
                 href={link.href}
-                onClick={(e) => { smoothScroll(e, link.href); setMobileOpen(false); }}
+                onClick={() => setMobileOpen(false)}
                 className="text-lg text-muted hover:text-foreground py-3 border-b border-border transition-colors"
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
             <div className="mt-6 flex items-center gap-3">
               <button
