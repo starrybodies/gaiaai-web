@@ -11,7 +11,10 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gaiaai.xyz"),
-  title: "Gaia AI — Artificial Intelligence in Service to the Living World",
+  title: {
+    default: "Gaia AI — Artificial Intelligence in Service to the Living World",
+    template: "%s | Gaia AI",
+  },
   description:
     "Gaia AI fuses agentic AI with ecological blockchain infrastructure to make environmental data legible, actionable, and economically viable.",
   keywords: [
@@ -21,7 +24,18 @@ export const metadata: Metadata = {
     "Regen Network",
     "satellite monitoring",
     "ecological AI",
+    "Symbiocene",
+    "PROI",
+    "Planetary Return on Investment",
+    "ecohyperstition",
+    "green carbon credits",
+    "blue carbon credits",
+    "regenerative AI",
+    "ecological blockchain",
   ],
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },

@@ -48,6 +48,19 @@ function NavLink({
       </a>
     );
   }
+  if (href.startsWith("http")) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
   return (
     <Link href={href} onClick={onClick} className={className}>
       {children}

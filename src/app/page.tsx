@@ -11,12 +11,18 @@ import { Talks } from "@/components/sections/Talks";
 import { SymbioceneticFutures } from "@/components/sections/SymbioceneticFutures";
 import { Gaiachads } from "@/components/sections/Gaiachads";
 import { Greenpaper } from "@/components/sections/Greenpaper";
+import { EOR } from "@/components/sections/EOR";
 import { BuildWithGaia } from "@/components/sections/BuildWithGaia";
 import { Community } from "@/components/sections/Community";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationSchema, webSiteSchema, faqPageSchema } from "@/lib/structured-data";
 
 export default function Home() {
   return (
     <main>
+      <JsonLd data={organizationSchema()} />
+      <JsonLd data={webSiteSchema()} />
+      <JsonLd data={faqPageSchema()} />
       <Hero />
       <About />
       <TalkToGaia />
@@ -30,6 +36,7 @@ export default function Home() {
       <SymbioceneticFutures />
       <Gaiachads />
       <Greenpaper />
+      <EOR />
       <BuildWithGaia />
       <Community />
     </main>

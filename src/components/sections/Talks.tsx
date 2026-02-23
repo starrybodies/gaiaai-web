@@ -4,37 +4,7 @@ import { useState } from "react";
 import { ScrollReveal } from "../ui/ScrollReveal";
 import { StaggerContainer, StaggerItem } from "../ui/StaggerContainer";
 import { Play } from "lucide-react";
-
-const TALKS = [
-  {
-    title: "GAIA LIVE 001: ETHDenver Main Regen Stage",
-    event: "ETHDenver, Feb 27 2025",
-    description:
-      "Presenting the architecture of agentic intelligence for ecological verification — from satellite imagery to on-chain ecocredits.",
-    videoId: "7KmiDvHXcQA",
-  },
-  {
-    title: "GAIA LIVE 002: GAIA AI @ the UN Biodiversity Council",
-    event: "United Nations, May 5 2025",
-    description:
-      "How intelligent systems can make environmental data legible, actionable, and economically viable at planetary scale.",
-    videoId: "l39u1BIqnN4",
-  },
-  {
-    title: "GAIA LIVE 003: GAIA CEO Samu @ the UN GLOCHA Summit",
-    event: "UN Emerging Technologies Summit, Sep 18 2025",
-    description:
-      "The convergence of AI and ecological blockchain infrastructure for the regenerative economy.",
-    videoId: "etqUCny5tCk",
-  },
-  {
-    title: "GAIA POD 001: Interview with Ayowecca Uganda",
-    event: "GAIA POD, 2025",
-    description:
-      "Exploring regenerative practices and community-led conservation in East Africa.",
-    videoId: "b7Ikyq6a1os",
-  },
-];
+import { TALKS } from "@/lib/constants";
 
 function VideoEmbed({ talk }: { talk: (typeof TALKS)[number] }) {
   const [loaded, setLoaded] = useState(false);
