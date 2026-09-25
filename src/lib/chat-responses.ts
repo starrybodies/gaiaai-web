@@ -6,12 +6,12 @@ interface ResponseRule {
 
 const KNOWLEDGE_BASE: ResponseRule[] = [
   {
-    keywords: ["what", "gaia", "who", "about"],
+    keywords: ["gaia", "mission", "lab"],
     response:
       "Gaia AI is a research lab building the ecological superintelligence layer: agents that read satellite imagery, material flow accounts and ecological registries, reason across them, and show the evidence behind each answer.\n\nThe work grew out of our partnership with Regen Network. Our first public instrument, Overshoot, is live at overshoot.gaiaai.xyz, and the full layer is in private development. For early access, write to hello@gaiaai.xyz.",
   },
   {
-    keywords: ["how", "work", "technical", "architecture", "layer"],
+    keywords: ["work", "technical", "architecture", "layer"],
     response:
       "Gaia operates across three interconnected layers:\n\n**1. Intelligence Layer** — AI agents powered by Claude and ElizaOS analyze satellite imagery, synthesize environmental data, and search the KOI knowledge network to produce actionable ecological intelligence.\n\n**2. Verification Layer** — Every ecological claim passes through Regen Network's seven-stage registry review, from project registration through methodology review, monitoring, and verification.\n\n**3. Settlement Layer** — Verified ecological outcomes are issued as on-chain ecocredits on Regen Ledger (Cosmos SDK). Credits can be traded or retired to claim environmental impact.",
   },
