@@ -31,15 +31,13 @@ export function ChatWindow() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const logRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
+  // Scroll only the message log; scrollIntoView would move the whole page on load
   useEffect(() => {
-    scrollToBottom();
+    const log = logRef.current;
+    if (log) log.scrollTo({ top: log.scrollHeight, behavior: "smooth" });
   }, [messages, isLoading]);
 
   const sendMessage = async (text: string) => {
@@ -129,7 +127,7 @@ export function ChatWindow() {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4" role="log" aria-live="polite" aria-label="Chat messages">
+      <div ref={logRef} className="flex-1 overflow-y-auto p-4 space-y-4" role="log" aria-live="polite" aria-label="Chat messages">
         {messages.map((msg, i) => (
           <ChatMessage
             key={i}
@@ -141,7 +139,6 @@ export function ChatWindow() {
         ))}
         {isLoading &&
           !messages[messages.length - 1]?.toolUse && <TypingIndicator />}
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Suggested prompts */}
