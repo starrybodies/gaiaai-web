@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Community } from "@/components/sections/Community";
 import { Gaiachads } from "@/components/sections/Gaiachads";
 import { JsonLd } from "@/components/JsonLd";
-import { webPageSchema } from "@/lib/structured-data";
+import { webPageSchema, breadcrumbSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Community",
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     title: "Community | Gaia AI",
     description: "Join the Gaia AI community: governance, $GAIA token, and Gaiachads NFTs.",
     url: "https://gaiaai.xyz/community",
+    images: [{ url: "/gaia-coded.gif", width: 1200, height: 1200 }],
   },
 };
 
@@ -25,6 +26,7 @@ export default function CommunityPage() {
           url: "/community",
         })}
       />
+      <JsonLd data={breadcrumbSchema([{ name: "Community", url: "/community" }])} />
       <div className="pt-24" />
       <Community />
       <Gaiachads />

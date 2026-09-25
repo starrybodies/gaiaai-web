@@ -7,7 +7,7 @@ import { RegenDigest } from "@/components/sections/RegenDigest";
 import { Talks } from "@/components/sections/Talks";
 import { EOR } from "@/components/sections/EOR";
 import { JsonLd } from "@/components/JsonLd";
-import { webPageSchema, faqPageSchema, videoObjectSchema } from "@/lib/structured-data";
+import { webPageSchema, faqPageSchema, videoObjectSchema, breadcrumbSchema } from "@/lib/structured-data";
 import { TALKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     title: "Knowledge & Media | Gaia AI",
     description: "Greenpaper, PROI framework, Symbiocenetic Futures, Gaian Times, Regen Digest, and talks.",
     url: "https://gaiaai.xyz/knowledge",
+    images: [{ url: "/gaia-coded.gif", width: 1200, height: 1200 }],
   },
 };
 
@@ -31,6 +32,7 @@ export default function KnowledgePage() {
           url: "/knowledge",
         })}
       />
+      <JsonLd data={breadcrumbSchema([{ name: "Knowledge & Media", url: "/knowledge" }])} />
       <JsonLd data={faqPageSchema()} />
       {TALKS.map((talk) => (
         <JsonLd key={talk.videoId} data={videoObjectSchema(talk)} />

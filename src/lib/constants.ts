@@ -125,7 +125,7 @@ export const PARTNER_TYPES = [
 
 export const SOCIAL_LINKS = [
   { label: "Twitter / X", href: "https://x.com/GaiaAIxyz", icon: "twitter" },
-  { label: "LinkedIn", href: "https://linkedin.com/company/gaiaai", icon: "linkedin" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/gaiaaiagent/", icon: "linkedin" },
   { label: "YouTube", href: "https://youtube.com/@gaiaaiagent", icon: "youtube" },
   { label: "Facebook", href: "https://facebook.com/gaiaai", icon: "facebook" },
   { label: "Manifold NFTs", href: "https://manifold.gallery/gaiaai", icon: "manifold" },
@@ -140,6 +140,7 @@ export const TALKS = [
     description:
       "Presenting the architecture of agentic intelligence for ecological verification — from satellite imagery to on-chain ecocredits.",
     videoId: "7KmiDvHXcQA",
+    uploadDate: "2025-02-27",
   },
   {
     title: "GAIA LIVE 002: GAIA AI @ the UN Biodiversity Council",
@@ -147,6 +148,7 @@ export const TALKS = [
     description:
       "How intelligent systems can make environmental data legible, actionable, and economically viable at planetary scale.",
     videoId: "l39u1BIqnN4",
+    uploadDate: "2025-05-05",
   },
   {
     title: "GAIA LIVE 003: GAIA CEO Samu @ the UN GLOCHA Summit",
@@ -154,6 +156,7 @@ export const TALKS = [
     description:
       "The convergence of AI and ecological blockchain infrastructure for the regenerative economy.",
     videoId: "etqUCny5tCk",
+    uploadDate: "2025-09-18",
   },
   {
     title: "GAIA POD 001: Interview with Ayowecca Uganda",
@@ -161,6 +164,7 @@ export const TALKS = [
     description:
       "Exploring regenerative practices and community-led conservation in East Africa.",
     videoId: "b7Ikyq6a1os",
+    uploadDate: "2025-01-15",
   },
 ] as const;
 
@@ -183,7 +187,7 @@ export const FOOTER_LINKS = {
   ],
   connect: [
     { label: "Twitter", href: "https://x.com/GaiaAIxyz" },
-    { label: "LinkedIn", href: "https://linkedin.com/company/gaiaai" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/gaiaaiagent/" },
     { label: "YouTube", href: "https://youtube.com/@gaiaaiagent" },
     { label: "Facebook", href: "https://facebook.com/gaiaai" },
     { label: "Manifold NFTs", href: "https://manifold.gallery/gaiaai" },

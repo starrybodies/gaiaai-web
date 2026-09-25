@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { ClientLayout } from "@/components/ClientLayout";
 import "./globals.css";
@@ -8,6 +8,10 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gaiaai.xyz"),
@@ -48,11 +52,14 @@ export const metadata: Metadata = {
     description:
       "Agentic AI meets ecological blockchain infrastructure for the regenerative economy.",
     type: "website",
+    siteName: "Gaia AI",
     url: "https://gaiaai.xyz",
     images: [{ url: "/gaia-coded.gif", width: 1200, height: 1200 }],
   },
   twitter: {
     card: "summary_large_image",
+    site: "@GaiaAIxyz",
+    creator: "@GaiaAIxyz",
     title: "Gaia AI — Artificial Intelligence in Service to the Living World",
     description:
       "Agentic AI meets ecological blockchain infrastructure for the regenerative economy.",

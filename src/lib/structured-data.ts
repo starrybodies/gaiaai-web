@@ -29,21 +29,63 @@ export function webSiteSchema() {
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/#talk-to-gaia?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
+const EXTRA_FAQ_ENTRIES = [
+  {
+    question: "What is Gaia AI?",
+    answer:
+      "Gaia AI is an organization that fuses agentic artificial intelligence with ecological blockchain infrastructure to make environmental data legible, actionable, and economically viable. It builds tools for the regenerative economy, including AI-powered satellite analysis, ecocredit verification, and knowledge networks.",
+  },
+  {
+    question: "What are ecocredits?",
+    answer:
+      "Ecocredits are on-chain tokens issued on Regen Ledger (Cosmos SDK) that represent verified ecological outcomes such as carbon sequestration, biodiversity restoration, or water cycle improvement. They pass through a seven-stage registry review before issuance and can be traded on the marketplace or retired to claim environmental impact.",
+  },
+  {
+    question: "What is the Gaian Times?",
+    answer:
+      "The Gaian Times is an AI-curated news platform by Gaia AI that draws from over 90 sources covering rewilding, clean energy, indigenous wisdom, and the emerging Symbiocene. It is available at times.gaiaai.xyz.",
+  },
+  {
+    question: "What is the Encyclopedia of Regeneration?",
+    answer:
+      "The Encyclopedia of Regeneration (EOR) is a comprehensive knowledge base built by Gaia AI that catalogs regenerative practices, ecological concepts, and restoration methodologies. It is available at eor.gaiaai.xyz.",
+  },
+];
+
 export function faqPageSchema() {
+  const greenpaper = GREENPAPER_CONCEPTS.map((concept) => ({
+    "@type": "Question" as const,
+    name: `What is ${concept.title}?`,
+    acceptedAnswer: {
+      "@type": "Answer" as const,
+      text: concept.description,
+    },
+  }));
+
+  const extra = EXTRA_FAQ_ENTRIES.map((entry) => ({
+    "@type": "Question" as const,
+    name: entry.question,
+    acceptedAnswer: {
+      "@type": "Answer" as const,
+      text: entry.answer,
+    },
+  }));
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: GREENPAPER_CONCEPTS.map((concept) => ({
-      "@type": "Question",
-      name: `What is ${concept.title}?`,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: concept.description,
-      },
-    })),
+    mainEntity: [...extra, ...greenpaper],
   };
 }
 
@@ -62,6 +104,29 @@ export function webPageSchema(params: {
   };
 }
 
+export function breadcrumbSchema(
+  items: { name: string; url: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      ...items.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 2,
+        name: item.name,
+        item: `${SITE_URL}${item.url}`,
+      })),
+    ],
+  };
+}
+
 export function videoObjectSchema(talk: (typeof TALKS)[number]) {
   return {
     "@context": "https://schema.org",
@@ -70,7 +135,7 @@ export function videoObjectSchema(talk: (typeof TALKS)[number]) {
     description: talk.description,
     thumbnailUrl: `https://img.youtube.com/vi/${talk.videoId}/hqdefault.jpg`,
     embedUrl: `https://www.youtube.com/embed/${talk.videoId}`,
-    uploadDate: talk.event.includes("2025") ? "2025-01-01" : "2024-01-01",
+    uploadDate: talk.uploadDate,
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
