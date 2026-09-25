@@ -1,56 +1,53 @@
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
-type ButtonSize = "sm" | "md" | "lg";
-
-interface ButtonBaseProps {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-}
-
-type ButtonAsButton = ButtonBaseProps &
-  ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined };
-
-type ButtonAsLink = ButtonBaseProps &
-  AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
-
-type ButtonProps = ButtonAsButton | ButtonAsLink;
+type ButtonVariant = "primary" | "secondary" | "amber" | "text";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-green text-background hover:brightness-110 font-semibold",
+    "bg-green text-background font-semibold hover:shadow-[0_0_32px_var(--color-green-glow)]",
   secondary:
-    "border border-green/30 text-green hover:bg-green/10 hover:border-green/50",
-  ghost:
-    "text-muted hover:text-foreground hover:bg-surface-lighter",
+    "border border-green/35 text-green hover:bg-green/10 hover:border-green/60",
+  amber:
+    "border border-amber/35 bg-amber/10 text-amber font-semibold hover:bg-amber/20 hover:border-amber/60",
+  text: "text-green underline-offset-4 hover:underline !px-0",
 };
 
-const sizes: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-sm",
-  lg: "px-8 py-4 text-base",
-};
-
-export function Button(props: ButtonProps) {
-  const {
-    variant = "primary",
-    size = "md",
-    className,
-  } = props;
-
-  const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-200 font-medium cursor-pointer",
-    variants[variant],
-    sizes[size],
-    className
+/**
+ * Link styled as a button. `external` opens a new tab and marks the link with
+ * an up-right arrow so visitors know they are leaving the site.
+ */
+export function Button({
+  href,
+  variant = "secondary",
+  external = false,
+  className,
+  children,
+  ...rest
+}: {
+  href: string;
+  variant?: ButtonVariant;
+  external?: boolean;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return (
+    <a
+      href={href}
+      className={cn(
+        "group inline-flex items-center gap-2 rounded-[3px] px-5 py-3 font-mono text-[14px] transition-all duration-200",
+        variants[variant],
+        className
+      )}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...rest}
+    >
+      {children}
+      {external && (
+        <ArrowUpRight
+          size={15}
+          aria-hidden
+          className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+        />
+      )}
+    </a>
   );
-
-  if (props.href !== undefined) {
-    const { href, variant: _v, size: _s, ...linkProps } = props as ButtonAsLink;
-    return <a href={href} className={classes} {...linkProps} />;
-  }
-
-  const { variant: _v, size: _s, className: _c, ...buttonProps } = props as ButtonAsButton;
-  return <button className={classes} {...buttonProps} />;
 }

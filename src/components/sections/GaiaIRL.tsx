@@ -1,9 +1,7 @@
-"use client";
-
 import Image from "next/image";
-import { ScrollReveal } from "../ui/ScrollReveal";
-import { StaggerContainer, StaggerItem } from "../ui/StaggerContainer";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { Section, SectionHeading } from "../ui/Section";
+import { Button } from "../ui/Button";
 
 const GRANTS = [
   {
@@ -38,134 +36,81 @@ const GRANTS = [
   },
 ];
 
+const STATS = [
+  { label: "Grant Rounds", value: "3" },
+  { label: "Total Funded", value: "$2,442" },
+  { label: "Proposals Assessed", value: "14+" },
+  { label: "PROI Metric", value: "Active" },
+];
+
 export function GaiaIRL() {
   return (
-    <section id="gaia-irl" className="relative py-32 overflow-hidden">
-      {/* Hands-plant background */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "url(/hands-plant.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6">
-        <div className="text-center mb-16">
-          <ScrollReveal>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-green/40" />
-              <span className="text-sm text-muted">Gaia IRL</span>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Micro-grants for{" "}
-              <span className="text-gradient">maximum PROI</span>
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <p className="text-muted text-[14px] max-w-2xl mx-auto leading-[1.8]">
+    <Section id="gaia-irl">
+      <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+        <SectionHeading
+          label="Gaia IRL"
+          title="Micro-grants for maximum PROI"
+          intro={
+            <p>
               Gaia IRL distributes micro-grants to on-the-ground regenerative
-              projects. Each proposal is assessed by Gaia&apos;s agentic board for
-              Planetary Return on Investment — directing resources to where they
-              create the most ecological impact per dollar.
+              projects. Each proposal is assessed by Gaia&apos;s agentic board
+              for Planetary Return on Investment — directing resources to where
+              they create the most ecological impact per dollar.
             </p>
-          </ScrollReveal>
-        </div>
-
-        {/* Grant cards with images */}
-        <StaggerContainer
-          className="grid md:grid-cols-3 gap-6"
-          staggerDelay={0.12}
-        >
-          {GRANTS.map((grant) => (
-            <StaggerItem key={grant.title}>
-              <a
-                href={grant.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-2xl border border-border bg-surface/80 backdrop-blur-sm overflow-hidden h-full flex flex-col transition-all hover:border-green/20"
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={grant.image}
-                    alt={grant.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent" />
-                  {/* Amount badge */}
-                  <div className="absolute bottom-3 left-3 bg-green/10 border border-green/30 rounded px-2 py-1">
-                    <span className="text-green text-[13px] font-mono font-bold">
-                      {grant.amount}
-                    </span>
-                  </div>
-                  {/* Round badge */}
-                  <div className="absolute bottom-3 right-3 bg-surface/80 border border-border rounded px-2 py-1">
-                    <span className="text-muted text-[11px] font-mono">
-                      {grant.round}
-                    </span>
-                  </div>
-                </div>
-                {/* Content */}
-                <div className="p-5 flex-1 flex flex-col">
-                  <span className="text-[11px] text-green/50 font-mono tracking-wider uppercase mb-2">
-                    {grant.date}
-                  </span>
-                  <h3 className="text-[14px] font-semibold mb-2">
-                    {grant.title}
-                  </h3>
-                  <p className="text-[12px] text-muted leading-relaxed flex-1">
-                    {grant.description}
-                  </p>
-                  <span className="mt-3 text-[11px] text-green/40 group-hover:text-green/70 transition-colors flex items-center gap-1">
-                    Read on Paragraph <ArrowRight size={10} />
-                  </span>
-                </div>
-              </a>
-            </StaggerItem>
+          }
+        />
+        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-border bg-border">
+          {STATS.map((stat) => (
+            <div key={stat.label} className="bg-background px-5 py-4">
+              <dt className="font-mono text-[12px] text-muted">{stat.label}</dt>
+              <dd className="mt-1 font-mono text-[26px] font-bold leading-tight text-green">{stat.value}</dd>
+            </div>
           ))}
-        </StaggerContainer>
+        </dl>
+      </div>
 
-        {/* Stats bar */}
-        <ScrollReveal delay={0.4}>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 md:gap-16">
-            {[
-              { label: "Grant Rounds", value: "3" },
-              { label: "Total Funded", value: "$2,442" },
-              { label: "Proposals Assessed", value: "14+" },
-              { label: "PROI Metric", value: "Active" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-green text-xl font-mono font-bold">
-                  {stat.value}
-                </div>
-                <div className="text-[11px] text-muted/50 mt-1 font-mono uppercase tracking-wider">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.5}>
-          <div className="mt-8 text-center">
+      <ul className="mt-16 grid gap-6 md:grid-cols-3">
+        {GRANTS.map((grant) => (
+          <li key={grant.title}>
             <a
-              href="https://x.com/gaiaaiagent"
+              href={grant.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-[13px] text-green/60 hover:text-green transition-colors"
+              className="group panel flex h-full flex-col overflow-hidden transition-colors hover:border-green/40"
             >
-              Follow @gaiaaiagent for grant announcements
-              <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={grant.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/10 to-transparent" />
+                <span className="absolute bottom-4 left-5 font-mono text-[34px] font-bold leading-none text-green drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+                  {grant.amount}
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <p className="flex justify-between font-mono text-[12px] text-muted">
+                  <span>{grant.round}</span>
+                  <span>{grant.date}</span>
+                </p>
+                <h3 className="mt-4 text-[16px] font-bold leading-snug">{grant.title}</h3>
+                <p className="mt-3 flex-1 text-[14px] leading-relaxed text-muted">{grant.description}</p>
+                <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-[13px] text-green">
+                  Read on Paragraph
+                  <ArrowUpRight size={14} aria-hidden className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </span>
+              </div>
             </a>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
+          </li>
+        ))}
+      </ul>
+
+      <Button href="https://x.com/gaiaaiagent" variant="text" external className="mt-10">
+        Follow @gaiaaiagent for grant announcements
+      </Button>
+    </Section>
   );
 }

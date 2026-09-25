@@ -89,8 +89,8 @@ export function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border"
-          : "bg-transparent"
+          ? "bg-background/85 backdrop-blur-xl border-b border-border"
+          : "bg-transparent border-b border-transparent"
       )}
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
@@ -103,7 +103,7 @@ export function Navigation() {
             height={36}
             className="brightness-90"
           />
-          <span className="text-xl font-bold tracking-tight text-green">
+          <span className="font-mono text-[17px] font-bold tracking-[0.06em] text-green">
             GAIA AI
           </span>
         </Link>
@@ -114,7 +114,7 @@ export function Navigation() {
             <NavLink
               key={link.href}
               href={link.href}
-              className="text-sm text-muted hover:text-foreground transition-colors"
+              className="font-mono text-[13px] text-muted hover:text-green transition-colors"
             >
               {link.label}
             </NavLink>
@@ -125,7 +125,7 @@ export function Navigation() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-md border border-border text-muted hover:text-foreground hover:border-green/30 transition-all cursor-pointer"
+            className="p-2 rounded-[3px] border border-border text-muted hover:text-green hover:border-green/40 transition-all cursor-pointer"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
@@ -133,7 +133,7 @@ export function Navigation() {
           <a
             href="#talk-to-gaia"
             onClick={(e) => smoothScroll(e, "#talk-to-gaia")}
-            className="inline-flex items-center rounded-md border border-green/30 px-5 py-2 text-sm text-green transition-all hover:bg-green/10 hover:border-green/50"
+            className="inline-flex items-center rounded-[3px] bg-green px-4 py-2 font-mono text-[13px] font-semibold text-background transition-all hover:shadow-[0_0_24px_var(--color-green-glow)]"
           >
             Talk to Gaia
           </a>
@@ -144,6 +144,7 @@ export function Navigation() {
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden text-foreground p-2 cursor-pointer"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -158,7 +159,7 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-lg text-muted hover:text-foreground py-3 border-b border-border transition-colors"
+                className="font-mono text-lg text-muted hover:text-green py-3 border-b border-border transition-colors"
               >
                 {link.label}
               </NavLink>
@@ -166,7 +167,7 @@ export function Navigation() {
             <div className="mt-6 flex items-center gap-3">
               <button
                 onClick={toggleTheme}
-                className="p-3 rounded-md border border-border text-muted hover:text-foreground transition-all cursor-pointer"
+                className="p-3 rounded-[3px] border border-border text-muted hover:text-foreground transition-all cursor-pointer"
                 aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               >
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -174,7 +175,7 @@ export function Navigation() {
               <a
                 href="#talk-to-gaia"
                 onClick={(e) => { smoothScroll(e, "#talk-to-gaia"); setMobileOpen(false); }}
-                className="flex-1 inline-flex items-center justify-center rounded-md border border-green/30 px-5 py-3 text-sm text-green"
+                className="flex-1 inline-flex items-center justify-center rounded-[3px] bg-green px-5 py-3 font-mono text-sm font-semibold text-background"
               >
                 Talk to Gaia
               </a>

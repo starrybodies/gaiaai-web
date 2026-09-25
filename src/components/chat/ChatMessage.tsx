@@ -22,14 +22,14 @@ export function ChatMessage({ role, content, toolUse, toolState }: ChatMessagePr
     <div className={cn("flex", isUser ? "justify-end" : "justify-start")}>
       <div
         className={cn(
-          "max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed",
+          "max-w-[85%] rounded-[4px] px-4 py-3 text-[15px] leading-relaxed",
           isUser
             ? "bg-green/15 text-foreground rounded-br-md"
             : "bg-surface-light text-foreground/90 rounded-bl-md"
         )}
       >
         {toolUse && (
-          <div className="mb-3 rounded-lg border border-border bg-surface p-3 font-mono text-xs">
+          <div className="mb-3 rounded-[3px] border border-border bg-background p-3 font-mono text-xs">
             <div className="flex items-center gap-2 text-green">
               {toolState === "querying" ? (
                 <>

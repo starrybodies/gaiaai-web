@@ -111,7 +111,7 @@ export function ChatWindow() {
   };
 
   return (
-    <div className="flex h-[500px] flex-col rounded-2xl border border-border bg-surface overflow-hidden">
+    <div className="panel panel-ticks flex h-[540px] flex-col overflow-hidden">
       {/* Header */}
       <div className="flex items-center gap-3 border-b border-border px-5 py-3">
         <div className="relative">
@@ -173,7 +173,7 @@ export function ChatWindow() {
           type="submit"
           disabled={!input.trim() || isLoading}
           aria-label="Send message"
-          className="rounded-lg bg-green p-2 text-background transition-all hover:brightness-110 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer focus:outline-none focus:ring-2 focus:ring-green/50 focus:ring-offset-2 focus:ring-offset-surface"
+          className="rounded-[3px] bg-green p-2 text-background transition-all hover:brightness-110 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer focus:outline-none focus:ring-2 focus:ring-green/50 focus:ring-offset-2 focus:ring-offset-surface"
         >
           <Send size={16} />
         </button>

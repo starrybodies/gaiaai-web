@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import { ClientLayout } from "@/components/ClientLayout";
 import "./globals.css";
 
@@ -9,8 +9,15 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#030806",
 };
 
 export const metadata: Metadata = {
@@ -73,7 +80,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`dark ${jetbrainsMono.variable} ${plexSans.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <style dangerouslySetInnerHTML={{ __html: `html{scroll-behavior:auto}` }} />
         <script
@@ -91,7 +102,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${jetbrainsMono.variable} antialiased`}>
+      <body className="antialiased">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

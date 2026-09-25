@@ -17,7 +17,7 @@ export function Footer() {
                 height={32}
                 className="brightness-90"
               />
-              <span className="text-xl font-bold text-green">GAIA AI</span>
+              <span className="font-mono text-[17px] font-bold tracking-[0.06em] text-green">GAIA AI</span>
             </div>
             <p className="text-sm text-muted leading-relaxed mb-4">
               Intelligence in service of the living world.
@@ -29,7 +29,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Navigation</h4>
+            <h4 className="mb-5 text-[13px] font-semibold text-muted">Navigation</h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.navigation.map((link) => (
                 <li key={link.label}>
@@ -55,7 +55,7 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Resources</h4>
+            <h4 className="mb-5 text-[13px] font-semibold text-muted">Resources</h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.resources.map((link) => (
                 <li key={link.label}>
@@ -74,7 +74,7 @@ export function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Connect</h4>
+            <h4 className="mb-5 text-[13px] font-semibold text-muted">Connect</h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.connect.map((link) => (
                 <li key={link.label}>

@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { ScrollReveal } from "../ui/ScrollReveal";
-import { StaggerContainer, StaggerItem } from "../ui/StaggerContainer";
-import { ArrowRight } from "lucide-react";
+import { Section, SectionHeading } from "../ui/Section";
+import { Button } from "../ui/Button";
 
 const CHADS = [
   {
@@ -66,98 +63,62 @@ const CHADS = [
 
 export function Gaiachads() {
   return (
-    <section id="gaiachads" className="relative py-32">
-      <div className="mx-auto max-w-[1200px] px-6">
-        <div className="text-center mb-16">
-          <ScrollReveal>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-green/40" />
-              <span className="text-sm text-muted">GaiaChads Collection</span>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Regenerative archetypes,{" "}
-              <span className="text-gradient">sold out</span>
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <p className="text-muted text-[14px] max-w-2xl mx-auto leading-[1.8]">
-              A limited-edition PFP collection of regenerative AI agents — each
-              representing a dimension of planetary healing. The series sold out
-              on Manifold. Holders gain early access, alpha, and governance roles
-              in the Gaia ecosystem.
-            </p>
-          </ScrollReveal>
-        </div>
+    <Section id="gaiachads">
+      <SectionHeading
+        label="GaiaChads Collection"
+        title="Regenerative archetypes, sold out"
+        intro={
+          <p>
+            A limited-edition PFP collection of regenerative AI agents — each
+            representing a dimension of planetary healing. The series sold out
+            on Manifold. Holders gain early access, alpha, and governance roles
+            in the Gaia ecosystem.
+          </p>
+        }
+      />
 
-        {/* Chad grid */}
-        <StaggerContainer
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3"
-          staggerDelay={0.08}
-        >
-          {CHADS.map((chad) => (
-            <StaggerItem key={chad.number}>
-              <a
-                href={chad.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block rounded-2xl border border-border bg-surface/80 backdrop-blur-sm overflow-hidden transition-all hover:border-green/20 hover:bg-surface-light"
-              >
-                <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src={chad.image}
-                    alt={`${chad.name} ${chad.number}`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
-                  <span className="absolute top-2 right-2 text-[11px] font-mono text-green/60 bg-surface/70 backdrop-blur-sm rounded px-1.5 py-0.5">
-                    {chad.number}
-                  </span>
-                </div>
-                <div className="p-4">
-                  <h3 className="text-[13px] font-semibold mb-1 leading-tight">
+      <ul className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-border bg-border sm:grid-cols-4">
+        {CHADS.map((chad) => (
+          <li key={chad.number} className="bg-background">
+            <a href={chad.link} target="_blank" rel="noopener noreferrer" className="group block">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={chad.image}
+                  alt={`${chad.name} ${chad.number}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  sizes="(max-width: 640px) 50vw, 25vw"
+                />
+              </div>
+              <div className="flex items-baseline justify-between gap-3 px-4 py-3.5">
+                <div className="min-w-0">
+                  <h3 className="truncate text-[13px] font-bold transition-colors group-hover:text-green">
                     {chad.name}
                   </h3>
-                  <p className="text-[11px] text-muted/60">{chad.archetype}</p>
+                  <p className="mt-0.5 text-[13px] text-muted">{chad.archetype}</p>
                 </div>
-              </a>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        {/* Sounds of Gaia mention */}
-        <ScrollReveal delay={0.3}>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <div className="text-center sm:text-left">
-              <p className="text-[13px] text-muted">
-                Also on Manifold:{" "}
-                <span className="text-foreground/80">
-                  Sounds of Gaia #001 — Ecstatic Ecosystems
-                </span>
-              </p>
-              <p className="text-[11px] text-muted/50 mt-1">
-                A music video for the regenerative movement. Revenue split: ⅓
-                Gaia treasury · ⅓ landscape restoration · ⅓ artist.
-              </p>
-            </div>
-            <a
-              href="https://manifold.gallery/gaiaai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group shrink-0 inline-flex items-center gap-2 rounded-md border border-green/30 px-6 py-3 text-sm text-green transition-all hover:bg-green/10 hover:border-green/50"
-            >
-              View on Manifold
-              <ArrowRight
-                size={14}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
+                <span className="shrink-0 font-mono text-[12px] text-green">{chad.number}</span>
+              </div>
             </a>
-          </div>
-        </ScrollReveal>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-10 flex flex-col gap-6 border-l-2 border-green pl-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-[15px] text-muted">
+            Also on Manifold:{" "}
+            <span className="text-foreground">Sounds of Gaia #001 — Ecstatic Ecosystems</span>
+          </p>
+          <p className="mt-1 text-[14px] text-muted">
+            A music video for the regenerative movement. Revenue split: ⅓ Gaia
+            treasury, ⅓ landscape restoration, ⅓ artist.
+          </p>
+        </div>
+        <Button href="https://manifold.gallery/gaiaai" external className="shrink-0">
+          View on Manifold
+        </Button>
       </div>
-    </section>
+    </Section>
   );
 }

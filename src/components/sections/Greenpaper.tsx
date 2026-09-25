@@ -1,121 +1,65 @@
-"use client";
-
 import Image from "next/image";
 import { GREENPAPER_CONCEPTS } from "@/lib/constants";
-import { ScrollReveal } from "../ui/ScrollReveal";
-import { StaggerContainer, StaggerItem } from "../ui/StaggerContainer";
-import { ArrowRight } from "lucide-react";
-
-const COLOR_BORDERS: Record<string, string> = {
-  green: "border-green/20",
-  cyan: "border-cyan/20",
-  amber: "border-amber/20",
-};
-
-const COLOR_QUOTE: Record<string, string> = {
-  green: "border-green/40",
-  cyan: "border-cyan/40",
-  amber: "border-amber/40",
-};
+import { Section, SectionHeading } from "../ui/Section";
+import { Button } from "../ui/Button";
 
 const COLOR_TEXT: Record<string, string> = {
-  green: "text-green/80",
-  cyan: "text-cyan/80",
-  amber: "text-amber/80",
+  green: "text-green",
+  cyan: "text-cyan",
+  amber: "text-amber",
+};
+
+const COLOR_BORDER: Record<string, string> = {
+  green: "border-green",
+  cyan: "border-cyan",
+  amber: "border-amber",
 };
 
 export function Greenpaper() {
   return (
-    <section id="greenpaper" className="relative py-32 overflow-hidden">
-      {/* Permaculture background */}
-      <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: "url(/permaculture.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          animation: "slow-pan 55s ease-in-out infinite",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+    <Section id="greenpaper" backdrop="/permaculture.jpg">
+      <SectionHeading label="The Greenpaper" title="A vision for planetary intelligence" />
 
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6">
-        <div className="text-center mb-16">
-          <ScrollReveal>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-green/40" />
-              <span className="text-sm text-muted">The Greenpaper</span>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              A vision for{" "}
-              <span className="text-gradient">planetary intelligence</span>
-            </h2>
-          </ScrollReveal>
-        </div>
-
-        {/* Concept cards */}
-        <StaggerContainer
-          className="grid md:grid-cols-3 gap-6"
-          staggerDelay={0.15}
-        >
-          {GREENPAPER_CONCEPTS.map((concept) => (
-            <StaggerItem key={concept.title}>
-              <div className={`rounded-2xl border border-border bg-surface/80 backdrop-blur-sm p-8 h-full flex flex-col transition-all hover:${COLOR_BORDERS[concept.color]}`}>
-                <span className="w-10 h-10 rounded bg-green/10 border border-green/20 flex items-center justify-center text-green text-[11px] font-mono font-bold mb-4">{concept.icon}</span>
-                <h3 className="text-[15px] font-bold mb-3">{concept.title}</h3>
-                <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
-                  {concept.description}
-                </p>
-                <blockquote className={`border-l-2 ${COLOR_QUOTE[concept.color]} pl-4 text-sm italic ${COLOR_TEXT[concept.color]}`}>
-                  &ldquo;{concept.quote}&rdquo;
-                </blockquote>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        {/* Pull quote with visual */}
-        <ScrollReveal delay={0.3}>
-          <div className="mt-16 relative">
-            {/* Decorative background image */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10 pointer-events-none">
-              <Image
-                src="/gaia-coded.gif"
-                alt=""
-                width={256}
-                height={256}
-                className="rounded-full object-cover"
-                unoptimized
-              />
-            </div>
-            <div className="relative text-center">
-              <blockquote className="text-2xl md:text-3xl font-medium text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-                &ldquo;The time has come to weave together the threads of human
-                wisdom traditions, scientific knowledge, and artificial
-                intelligence into a new planetary nervous system.&rdquo;
-              </blockquote>
-              <div className="mt-4 text-sm text-muted">— Gaia AI Greenpaper</div>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* CTA */}
-        <ScrollReveal delay={0.4}>
-          <div className="mt-10 text-center">
-            <a
-              href="https://github.com/gaiaaiagent/greenpaper"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-md border border-green/30 px-6 py-3 text-sm text-green transition-all hover:bg-green/10 hover:border-green/50"
+      <ul className="mt-16 grid gap-px overflow-hidden rounded-[4px] border border-border bg-border md:grid-cols-3">
+        {GREENPAPER_CONCEPTS.map((concept) => (
+          <li key={concept.title} className="flex flex-col bg-background p-8">
+            <span aria-hidden className={`font-mono text-[13px] font-bold ${COLOR_TEXT[concept.color]}`}>
+              {concept.icon}
+            </span>
+            <h3 className="mt-6 text-[20px] font-bold">{concept.title}</h3>
+            <p className="mt-4 flex-1 text-[15px] leading-relaxed text-muted">{concept.description}</p>
+            <blockquote
+              className={`mt-8 border-l-2 pl-4 text-[14px] italic leading-relaxed ${COLOR_BORDER[concept.color]} ${COLOR_TEXT[concept.color]}`}
             >
+              &ldquo;{concept.quote}&rdquo;
+            </blockquote>
+          </li>
+        ))}
+      </ul>
+
+      <figure className="mt-24 grid items-center gap-10 md:grid-cols-[auto_1fr]">
+        <Image
+          src="/gaia-coded.gif"
+          alt=""
+          width={160}
+          height={160}
+          className="h-28 w-28 rounded-full object-cover opacity-80 ring-1 ring-green/30 md:h-40 md:w-40"
+          unoptimized
+        />
+        <div>
+          <blockquote className="max-w-[36ch] font-mono text-[clamp(1.4rem,3vw,2.25rem)] font-medium leading-[1.3] text-foreground">
+            &ldquo;The time has come to weave together the threads of human
+            wisdom traditions, scientific knowledge, and artificial intelligence
+            into a new planetary nervous system.&rdquo;
+          </blockquote>
+          <figcaption className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <span className="font-mono text-[13px] text-muted">— Gaia AI Greenpaper</span>
+            <Button href="https://github.com/gaiaaiagent/greenpaper" external>
               Read the Full Greenpaper
-              <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
+            </Button>
+          </figcaption>
+        </div>
+      </figure>
+    </Section>
   );
 }

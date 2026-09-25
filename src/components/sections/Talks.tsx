@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ScrollReveal } from "../ui/ScrollReveal";
-import { StaggerContainer, StaggerItem } from "../ui/StaggerContainer";
 import { Play } from "lucide-react";
 import { TALKS } from "@/lib/constants";
+import { Section, SectionHeading } from "../ui/Section";
 
 function VideoEmbed({ talk }: { talk: (typeof TALKS)[number] }) {
   const [loaded, setLoaded] = useState(false);
@@ -14,17 +13,17 @@ function VideoEmbed({ talk }: { talk: (typeof TALKS)[number] }) {
     return (
       <button
         onClick={() => setLoaded(true)}
-        className="relative aspect-video bg-background w-full group/play cursor-pointer"
+        className="group/play relative block aspect-video w-full cursor-pointer bg-background"
         aria-label={`Play ${talk.title}`}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={thumbUrl}
           alt={talk.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover/play:opacity-90 transition-opacity"
+          className="absolute inset-0 h-full w-full object-cover opacity-80 transition-opacity group-hover/play:opacity-100"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-14 h-14 rounded-full bg-green/90 flex items-center justify-center group-hover/play:bg-green group-hover/play:scale-110 transition-all shadow-[0_0_30px_rgba(0,232,123,0.3)]">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green shadow-[0_0_30px_var(--color-green-glow)] transition-transform group-hover/play:scale-110">
             <Play size={22} className="text-background ml-1" fill="currentColor" />
           </div>
         </div>
@@ -47,59 +46,21 @@ function VideoEmbed({ talk }: { talk: (typeof TALKS)[number] }) {
 
 export function Talks() {
   return (
-    <section id="talks" className="relative py-32">
-      {/* Forest canopy background */}
-      <div
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage: "url(/forest-canopy.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          animation: "slow-pan 45s ease-in-out infinite",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+    <Section id="talks">
+      <SectionHeading label="Talks & Media" title="Sharing the vision" />
 
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6">
-        <div className="text-center mb-16">
-          <ScrollReveal>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-8 bg-green/40" />
-              <span className="text-sm text-muted">Talks & Media</span>
+      <ul className="mt-16 grid gap-x-6 gap-y-12 md:grid-cols-2">
+        {TALKS.map((talk) => (
+          <li key={talk.videoId} className="flex flex-col">
+            <div className="panel overflow-hidden">
+              <VideoEmbed talk={talk} />
             </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Sharing the <span className="text-gradient">vision</span>
-            </h2>
-          </ScrollReveal>
-        </div>
-
-        <StaggerContainer
-          className="grid md:grid-cols-2 gap-6"
-          staggerDelay={0.15}
-        >
-          {TALKS.map((talk) => (
-            <StaggerItem key={talk.videoId}>
-              <div className="rounded-2xl border border-border bg-surface/80 backdrop-blur-sm overflow-hidden h-full flex flex-col">
-                <VideoEmbed talk={talk} />
-                {/* Info */}
-                <div className="p-5 flex-1 flex flex-col">
-                  <span className="text-[11px] text-green/50 font-mono tracking-wider uppercase">
-                    {talk.event}
-                  </span>
-                  <h3 className="text-[14px] font-semibold mt-2 mb-2">
-                    {talk.title}
-                  </h3>
-                  <p className="text-[12px] text-muted leading-relaxed flex-1">
-                    {talk.description}
-                  </p>
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
+            <p className="mt-5 font-mono text-[12px] text-green">{talk.event}</p>
+            <h3 className="mt-2 text-[17px] font-bold leading-snug">{talk.title}</h3>
+            <p className="mt-2 text-[15px] leading-relaxed text-muted">{talk.description}</p>
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }
