@@ -1,15 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "amber" | "text";
+type ButtonVariant = "primary" | "secondary" | "text";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
     "bg-green text-background font-semibold hover:shadow-[0_0_32px_var(--color-green-glow)]",
   secondary:
     "border border-green/35 text-green hover:bg-green/10 hover:border-green/60",
-  amber:
-    "border border-amber/35 bg-amber/10 text-amber font-semibold hover:bg-amber/20 hover:border-amber/60",
   text: "text-green underline-offset-4 hover:underline !px-0",
 };
 

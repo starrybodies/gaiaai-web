@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { EARLY_ACCESS_HREF, OVERSHOOT_URL } from "@/lib/constants";
 import { Button } from "../ui/Button";
 import { useTheme } from "../ThemeProvider";
 import { GlobePlaceholder } from "../three/GlobePlaceholder";
@@ -16,10 +17,10 @@ const Globe = dynamic(
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const READOUTS = [
+  { label: "Status", value: "Private development" },
+  { label: "Live now", value: "Overshoot atlas" },
   { label: "Partner", value: "Regen Network" },
-  { label: "Network", value: "Base L2" },
-  { label: "Community", value: "1,500+" },
-  { label: "Grants funded", value: "$2,442" },
+  { label: "Presented at", value: "United Nations" },
 ];
 
 // Mirrors --color-green per theme in globals.css; WebGL can't read CSS variables.
@@ -50,31 +51,35 @@ export function Hero() {
       <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_72%_45%,var(--color-green-dim),transparent_55%)]" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1200px] flex-1 items-center gap-8 px-6 pt-28 pb-10 lg:grid-cols-[1.05fr_1fr]">
-        <div>
+        <div className="min-w-0">
           <motion.h1
             {...rise(0.1)}
-            className="text-glow text-[clamp(2.6rem,6.2vw,5.25rem)] font-bold leading-[0.98] tracking-[-0.02em]"
+            className="text-glow text-[clamp(1.9rem,4.4vw,3.6rem)] font-bold leading-[0.98] tracking-[-0.02em]"
           >
-            Artificial intelligence in service to the{" "}
-            <span className="text-gradient">living world</span>
+            Superintelligence for the{" "}
+            <span className="text-gradient whitespace-nowrap">living world</span>
           </motion.h1>
 
           <motion.p
             {...rise(0.3)}
-            className="mt-8 max-w-[34ch] text-[19px] leading-[1.6] text-foreground/80"
+            className="mt-8 max-w-[44ch] text-[19px] leading-[1.6] text-foreground/80"
           >
-            We build AI systems that make environmental data legible,
-            actionable, and economically viable.
+            Gaia AI is a research lab building the ecological
+            superintelligence layer: one system that reads satellite, trade
+            and registry data, reasons across it, and shows the evidence
+            behind every answer.
           </motion.p>
 
-          <motion.div {...rise(0.45)} className="mt-10 flex flex-wrap items-center gap-3">
-            <Button href="#talk-to-gaia" variant="primary">
+          <motion.div {...rise(0.45)} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Button href={EARLY_ACCESS_HREF} variant="primary">
+              Request early access
+            </Button>
+            <Button href={OVERSHOOT_URL} external>
+              Explore Overshoot
+            </Button>
+            <Button href="#talk-to-gaia" variant="text">
               Talk to Gaia
               <ArrowDown size={15} aria-hidden className="transition-transform group-hover:translate-y-0.5" />
-            </Button>
-            <Button href="#greenpaper">Read the Greenpaper</Button>
-            <Button href="https://zora.co/@gaiaai" variant="amber" external>
-              Support on Zora
             </Button>
           </motion.div>
         </div>

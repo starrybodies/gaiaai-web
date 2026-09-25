@@ -1,13 +1,23 @@
+export const OVERSHOOT_URL = "https://overshoot.gaiaai.xyz";
+export const EARLY_ACCESS_HREF =
+  "mailto:hello@gaiaai.xyz?subject=Early%20access%20to%20Gaia%20AI";
+
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Talk to Gaia", href: "#talk-to-gaia" },
   { label: "Ecosystem", href: "/ecosystem" },
   { label: "Knowledge", href: "/knowledge" },
-  { label: "EOR", href: "https://eor.gaiaai.xyz" },
+  { label: "Overshoot", href: "https://overshoot.gaiaai.xyz" },
   { label: "Community", href: "/community" },
 ] as const;
 
 export const ECOSYSTEM_PROJECTS = [
+  {
+    name: "Overshoot",
+    description: "A planetary atlas of material flows. It traces extraction, trade, use and waste by place and material, with the source behind each figure.",
+    status: "Live" as const,
+    icon: "O>",
+  },
   {
     name: "Regen AI",
     description: "Joint venture with Regen Network — AI-powered environmental analysis and blockchain ecocredit infrastructure.",
@@ -49,15 +59,14 @@ export const ECOSYSTEM_PROJECTS = [
 export const PARTNERS = [
   { name: "Regen Network", href: "https://regen.network", logo: "/logos/regen.svg" },
   { name: "BlockScience", href: "https://block.science", logo: "/logos/blockscience.svg" },
-  { name: "Virtuals Protocol", href: "https://virtuals.io", logo: "/logos/virtuals.svg" },
 ] as const;
 
 export const HOW_IT_WORKS_LAYERS = [
   {
     title: "Intelligence Layer",
-    subtitle: "AI Agents · KOI Search · Satellite Analysis",
-    description: "AI agents powered by Claude and ElizaOS analyze satellite imagery, synthesize environmental data, and search the KOI knowledge network to produce actionable ecological intelligence.",
-    items: ["Claude reasoning", "ElizaOS agents", "Satellite imagery", "KOI semantic search"],
+    subtitle: "AI Agents · KOI Search · Satellite Analysis · Material Flows",
+    description: "AI agents powered by Claude and ElizaOS analyze satellite imagery, trace material flows through Overshoot, and search the KOI knowledge network to produce ecological intelligence with its sources attached.",
+    items: ["Claude reasoning", "ElizaOS agents", "Satellite imagery", "Material flows", "KOI semantic search"],
     color: "green" as const,
   },
   {
@@ -70,8 +79,8 @@ export const HOW_IT_WORKS_LAYERS = [
   {
     title: "Settlement Layer",
     subtitle: "Regen Ledger · Ecocredits · Marketplace",
-    description: "Verified ecological outcomes are issued as on-chain ecocredits on Regen Ledger (Cosmos SDK). Credits can be traded on the marketplace or retired to claim environmental impact. The $GAIA token governs the intelligence layer.",
-    items: ["Ecocredit issuance", "Marketplace trading", "Credit retirement", "$GAIA governance"],
+    description: "Verified ecological outcomes are issued as on-chain ecocredits on Regen Ledger (Cosmos SDK). Credits can be traded on the marketplace or retired to claim environmental impact.",
+    items: ["Ecocredit issuance", "Marketplace trading", "Credit retirement"],
     color: "amber" as const,
   },
 ] as const;
@@ -121,6 +130,11 @@ export const PARTNER_TYPES = [
     icon: "MV",
     description: "Integrate AI verification into your monitoring, reporting, and verification workflows.",
   },
+  {
+    type: "Early-Stage Investors",
+    icon: "VC",
+    description: "Follow the lab from research preview to the first full release of the layer.",
+  },
 ] as const;
 
 export const SOCIAL_LINKS = [
@@ -130,7 +144,6 @@ export const SOCIAL_LINKS = [
   { label: "Facebook", href: "https://facebook.com/gaiaai", icon: "facebook" },
   { label: "Manifold NFTs", href: "https://manifold.gallery/gaiaai", icon: "manifold" },
   { label: "GitHub", href: "https://github.com/gaiaaiagent", icon: "github" },
-  { label: "Zora", href: "https://zora.co/@gaiaai", icon: "zora" },
 ] as const;
 
 export const TALKS = [
@@ -178,6 +191,7 @@ export const FOOTER_LINKS = {
     { label: "Community", href: "/community" },
   ],
   resources: [
+    { label: "Overshoot", href: "https://overshoot.gaiaai.xyz" },
     { label: "Encyclopedia of Regeneration", href: "https://eor.gaiaai.xyz" },
     { label: "Greenpaper", href: "https://github.com/gaiaaiagent/greenpaper" },
     { label: "The Gaian Times", href: "https://times.gaiaai.xyz" },
@@ -192,7 +206,6 @@ export const FOOTER_LINKS = {
     { label: "Facebook", href: "https://facebook.com/gaiaai" },
     { label: "Manifold NFTs", href: "https://manifold.gallery/gaiaai" },
     { label: "GitHub", href: "https://github.com/gaiaaiagent" },
-    { label: "Zora Creator Token", href: "https://zora.co/@gaiaai" },
     { label: "hello@gaiaai.xyz", href: "mailto:hello@gaiaai.xyz" },
   ],
 } as const;

@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import { EARLY_ACCESS_HREF, SOCIAL_LINKS } from "@/lib/constants";
 import { Section, SectionHeading } from "../ui/Section";
 
 export function Community() {
@@ -11,35 +11,36 @@ export function Community() {
           title="Join the Guild"
           intro={
             <p>
-              Gaia AI is community-governed through the $GAIA token on Base L2.
-              Join the conversation, contribute to proposals, and help direct
-              intelligence toward regeneration.
+              The guild is the circle of researchers, land stewards, registry
+              operators and builders who work alongside the lab. Members hear
+              about releases first and test new agents before anyone else.
             </p>
           }
         />
 
         <a
-          href="https://zora.co/@gaiaai"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative block overflow-hidden rounded-[4px] border border-amber/30 bg-amber/[0.06] p-8 transition-colors hover:border-amber/60 hover:bg-amber/10"
+          href={EARLY_ACCESS_HREF}
+          className="group relative block overflow-hidden rounded-[4px] border border-green/30 bg-green/[0.05] p-8 transition-colors hover:border-green/60 hover:bg-green/10"
         >
-          <p className="font-mono text-[13px] text-amber">Support the Mission</p>
+          <p className="flex items-center gap-2.5 font-mono text-[13px] text-green">
+            <span aria-hidden className="h-2 w-2 rounded-full bg-green motion-safe:animate-pulse" />
+            Early access
+          </p>
           <h3 className="mt-3 text-[clamp(1.4rem,2.6vw,2rem)] font-bold leading-tight">
-            Buy the Gaia Creator Token
+            Get the first release
           </h3>
           <p className="mt-3 max-w-[46ch] text-[15px] leading-relaxed text-muted">
-            Fuel planetary regeneration. Every token supports Gaia&apos;s
-            mission to make environmental intelligence accessible to all.
+            The full layer is in private development. Write to us and we will
+            let you know when the first agents open to testers.
           </p>
-          <span className="mt-6 inline-flex items-center gap-2 font-mono text-[15px] font-bold text-amber">
-            zora.co/@gaiaai
+          <span className="mt-6 inline-flex items-center gap-2 font-mono text-[15px] font-bold text-green">
+            Request early access
             <ArrowUpRight size={16} aria-hidden className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </span>
         </a>
       </div>
 
-      <ul className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-border bg-border sm:grid-cols-4 lg:grid-cols-7">
+      <ul className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-border bg-border sm:grid-cols-3 lg:grid-cols-6">
         {SOCIAL_LINKS.map((link) => (
           <li key={link.label} className="bg-background">
             <a

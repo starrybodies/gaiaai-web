@@ -8,11 +8,12 @@ export function Ecosystem() {
     <Section id="ecosystem">
       <SectionHeading
         label="Ecosystem"
-        title="A network of regenerative projects"
+        title="What the lab has built so far"
         intro={
           <p>
-            Six interconnected projects powered by Gaia&apos;s intelligence
-            layer, each addressing a critical dimension of planetary health.
+            Each project tests part of the layer against real ecosystems,
+            registries and readers. Together they are the groundwork for the
+            first full release.
           </p>
         }
       />

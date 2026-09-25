@@ -19,9 +19,10 @@ export function TalkToGaia() {
             title="Ask Gaia anything about the regenerative economy"
             intro={
               <p>
-                Gaia is grounded in verified knowledge — the greenpaper, Regen
-                Network documentation, and live blockchain data. No
-                hallucinations.
+                This agent is an early preview of the layer. It answers from
+                the Greenpaper, Regen Network documentation and live ledger
+                data, and it says so when a question falls outside what it
+                knows.
               </p>
             }
           />

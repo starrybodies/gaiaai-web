@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS } from "@/lib/constants";
+import { EARLY_ACCESS_HREF, NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useTheme } from "./ThemeProvider";
 
@@ -131,11 +131,10 @@ export function Navigation() {
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <a
-            href="#talk-to-gaia"
-            onClick={(e) => smoothScroll(e, "#talk-to-gaia")}
+            href={EARLY_ACCESS_HREF}
             className="inline-flex items-center rounded-[3px] bg-green px-4 py-2 font-mono text-[13px] font-semibold text-background transition-all hover:shadow-[0_0_24px_var(--color-green-glow)]"
           >
-            Talk to Gaia
+            Early access
           </a>
         </div>
 
@@ -173,11 +172,11 @@ export function Navigation() {
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
               </button>
               <a
-                href="#talk-to-gaia"
-                onClick={(e) => { smoothScroll(e, "#talk-to-gaia"); setMobileOpen(false); }}
+                href={EARLY_ACCESS_HREF}
+                onClick={() => setMobileOpen(false)}
                 className="flex-1 inline-flex items-center justify-center rounded-[3px] bg-green px-5 py-3 font-mono text-sm font-semibold text-background"
               >
-                Talk to Gaia
+                Request early access
               </a>
             </div>
           </div>

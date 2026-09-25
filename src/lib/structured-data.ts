@@ -3,7 +3,7 @@ import { SOCIAL_LINKS, GREENPAPER_CONCEPTS, TALKS } from "./constants";
 const SITE_URL = "https://gaiaai.xyz";
 const SITE_NAME = "Gaia AI";
 const SITE_DESCRIPTION =
-  "Gaia AI fuses agentic AI with ecological blockchain infrastructure to make environmental data legible, actionable, and economically viable.";
+  "Gaia AI is a research lab building the ecological superintelligence layer: agents that reason across Earth observation, material flows and ecological registries, with the evidence attached.";
 
 export function organizationSchema() {
   return {
@@ -44,7 +44,12 @@ const EXTRA_FAQ_ENTRIES = [
   {
     question: "What is Gaia AI?",
     answer:
-      "Gaia AI is an organization that fuses agentic artificial intelligence with ecological blockchain infrastructure to make environmental data legible, actionable, and economically viable. It builds tools for the regenerative economy, including AI-powered satellite analysis, ecocredit verification, and knowledge networks.",
+      "Gaia AI is a research lab building the ecological superintelligence layer: agents that reason across satellite imagery, material flow accounts and ecological registries, and show the evidence behind each answer. Its first public instrument is Overshoot, a planetary atlas of material flows at overshoot.gaiaai.xyz. The full layer is in private development.",
+  },
+  {
+    question: "What is Overshoot?",
+    answer:
+      "Overshoot is a planetary atlas of material flows built by Gaia AI. It traces the oil, ores, crops and manufactured materials behind everyday life through extraction, production, trade, use and waste, with the source behind each figure. Data is available as open downloads and through an MCP server at overshoot.gaiaai.xyz.",
   },
   {
     question: "What are ecocredits?",

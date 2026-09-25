@@ -8,7 +8,7 @@ const KNOWLEDGE_BASE: ResponseRule[] = [
   {
     keywords: ["what", "gaia", "who", "about"],
     response:
-      "Gaia AI is a decentralized intelligence network that fuses agentic AI with ecological blockchain infrastructure. Born from a partnership with Regen Network, we operate at the intersection of environmental monitoring, verified ecological credit systems, and community-governed regenerative finance.\n\nWe presented at the United Nations in September 2025. We're building the intelligence layer for Earth's regenerative economy.",
+      "Gaia AI is a research lab building the ecological superintelligence layer: agents that read satellite imagery, material flow accounts and ecological registries, reason across them, and show the evidence behind each answer.\n\nThe work grew out of our partnership with Regen Network. Our first public instrument, Overshoot, is live at overshoot.gaiaai.xyz, and the full layer is in private development. For early access, write to hello@gaiaai.xyz.",
   },
   {
     keywords: ["how", "work", "technical", "architecture", "layer"],
@@ -66,9 +66,9 @@ const KNOWLEDGE_BASE: ResponseRule[] = [
     },
   },
   {
-    keywords: ["token", "gaia", "$gaia", "governance"],
+    keywords: ["overshoot", "material", "flows", "atlas", "trade", "waste"],
     response:
-      "The $GAIA governance token was launched via Virtuals Protocol on Base L2 in January 2025. Token holders participate in community governance, directing resources toward maximally regenerative projects.\n\nThe token governs the intelligence layer — helping decide which ecological data sources to prioritize, which projects receive support, and how the network evolves.\n\nI can't provide financial advice or speculation about token value — please do your own research.",
+      "Overshoot is the lab's first public instrument: a planetary atlas of material flows at overshoot.gaiaai.xyz.\n\nIt traces the oil, ores, crops and manufactured materials behind everyday life through five stages: extraction, production, trade, use and what happens after use. Every figure carries its source, and links the evidence cannot support stay marked as unknown. You can query the data through open downloads or an MCP server.",
   },
   {
     keywords: ["satellite", "imagery", "monitor", "ndvi"],
@@ -145,6 +145,6 @@ export const SUGGESTED_PROMPTS = [
   "Show me active ecocredit classes on Regen",
   "How does the Regen Registry review process work?",
   "What is the Symbiocene?",
-  "Tell me about the Fundacion Batis project",
+  "What is Overshoot?",
   "What is Planetary Return on Investment (PROI)?",
 ];

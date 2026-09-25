@@ -1,17 +1,18 @@
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
+import { Overshoot } from "@/components/sections/Overshoot";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { TalkToGaia } from "@/components/sections/TalkToGaia";
 import { Ecosystem } from "@/components/sections/Ecosystem";
-import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PROI } from "@/components/sections/PROI";
 import { GaiaIRL } from "@/components/sections/GaiaIRL";
-import { GaianTimes } from "@/components/sections/GaianTimes";
-import { RegenDigest } from "@/components/sections/RegenDigest";
 import { Talks } from "@/components/sections/Talks";
-import { SymbioceneticFutures } from "@/components/sections/SymbioceneticFutures";
-import { Gaiachads } from "@/components/sections/Gaiachads";
-import { Greenpaper } from "@/components/sections/Greenpaper";
+import { GaianTimes } from "@/components/sections/GaianTimes";
 import { EOR } from "@/components/sections/EOR";
+import { RegenDigest } from "@/components/sections/RegenDigest";
+import { SymbioceneticFutures } from "@/components/sections/SymbioceneticFutures";
+import { Greenpaper } from "@/components/sections/Greenpaper";
+import { Gaiachads } from "@/components/sections/Gaiachads";
 import { BuildWithGaia } from "@/components/sections/BuildWithGaia";
 import { Community } from "@/components/sections/Community";
 import { JsonLd } from "@/components/JsonLd";
@@ -25,18 +26,19 @@ export default function Home() {
       <JsonLd data={faqPageSchema()} />
       <Hero />
       <About />
+      <Overshoot />
+      <HowItWorks />
       <TalkToGaia />
       <Ecosystem />
-      <HowItWorks />
       <PROI />
       <GaiaIRL />
-      <GaianTimes />
-      <RegenDigest />
       <Talks />
-      <SymbioceneticFutures />
-      <Gaiachads />
-      <Greenpaper />
+      <GaianTimes />
       <EOR />
+      <RegenDigest />
+      <SymbioceneticFutures />
+      <Greenpaper />
+      <Gaiachads />
       <BuildWithGaia />
       <Community />
     </main>

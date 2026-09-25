@@ -6,11 +6,11 @@ import { webPageSchema, breadcrumbSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Community",
-  description: "Join the Gaia AI community: governance, $GAIA token, and Gaiachads NFTs.",
+  description: "Join the Gaia AI guild: early access to the lab, field reports, and GaiaChads NFTs.",
   alternates: { canonical: "/community" },
   openGraph: {
     title: "Community | Gaia AI",
-    description: "Join the Gaia AI community: governance, $GAIA token, and Gaiachads NFTs.",
+    description: "Join the Gaia AI guild: early access to the lab, field reports, and GaiaChads NFTs.",
     url: "https://gaiaai.xyz/community",
     images: [{ url: "/gaia-coded.gif", width: 1200, height: 1200 }],
   },
@@ -22,7 +22,7 @@ export default function CommunityPage() {
       <JsonLd
         data={webPageSchema({
           name: "Community",
-          description: "Join the Gaia AI community: governance, $GAIA token, and Gaiachads NFTs.",
+          description: "Join the Gaia AI guild: early access to the lab, field reports, and GaiaChads NFTs.",
           url: "/community",
         })}
       />

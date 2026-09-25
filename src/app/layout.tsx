@@ -23,13 +23,16 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://gaiaai.xyz"),
   title: {
-    default: "Gaia AI — Artificial Intelligence in Service to the Living World",
+    default: "Gaia AI — The Ecological Superintelligence Layer",
     template: "%s | Gaia AI",
   },
   description:
-    "Gaia AI fuses agentic AI with ecological blockchain infrastructure to make environmental data legible, actionable, and economically viable.",
+    "Gaia AI is a research lab building the ecological superintelligence layer: agents that reason across Earth observation, material flows and ecological registries, with the evidence attached.",
   keywords: [
     "Gaia AI",
+    "ecological superintelligence",
+    "Overshoot",
+    "material flows",
     "regenerative economy",
     "ecocredits",
     "Regen Network",
@@ -55,9 +58,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Gaia AI — Artificial Intelligence in Service to the Living World",
+    title: "Gaia AI — The Ecological Superintelligence Layer",
     description:
-      "Agentic AI meets ecological blockchain infrastructure for the regenerative economy.",
+      "A research lab building the ecological superintelligence layer. Overshoot, its planetary atlas of material flows, is live now.",
     type: "website",
     siteName: "Gaia AI",
     url: "https://gaiaai.xyz",
@@ -67,9 +70,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@GaiaAIxyz",
     creator: "@GaiaAIxyz",
-    title: "Gaia AI — Artificial Intelligence in Service to the Living World",
+    title: "Gaia AI — The Ecological Superintelligence Layer",
     description:
-      "Agentic AI meets ecological blockchain infrastructure for the regenerative economy.",
+      "A research lab building the ecological superintelligence layer. Overshoot, its planetary atlas of material flows, is live now.",
     images: ["/gaia-coded.gif"],
   },
 };

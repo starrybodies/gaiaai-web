@@ -1,4 +1,4 @@
-import { PARTNER_TYPES } from "@/lib/constants";
+import { EARLY_ACCESS_HREF, PARTNER_TYPES } from "@/lib/constants";
 import { Section, SectionHeading } from "../ui/Section";
 import { Button } from "../ui/Button";
 
@@ -11,16 +11,27 @@ export function BuildWithGaia() {
             label="Build With Gaia"
             title="Let's build the regenerative economy together"
             intro={
-              <p>
-                We partner with carbon registries, conservation foundations, MRV
-                providers, and climate funds to deploy AI-powered environmental
-                monitoring and verification at scale.
-              </p>
+              <>
+                <p>
+                  We partner with carbon registries, conservation foundations,
+                  MRV providers, and climate funds to deploy AI-powered
+                  environmental monitoring and verification at scale.
+                </p>
+                <p className="text-[15px]">
+                  Design partners get the first agents built around their own
+                  data. Investors can reach the founders at the same address.
+                </p>
+              </>
             }
           />
-          <Button href="mailto:hello@gaiaai.xyz" variant="primary" className="mt-10">
-            Get in touch
-          </Button>
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Button href="mailto:hello@gaiaai.xyz" variant="primary">
+              Get in touch
+            </Button>
+            <Button href={EARLY_ACCESS_HREF} variant="text">
+              Request early access
+            </Button>
+          </div>
         </div>
 
         <ul className="divide-y divide-border border-y border-border">

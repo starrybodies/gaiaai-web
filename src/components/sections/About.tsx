@@ -1,27 +1,27 @@
 import Image from "next/image";
-import { Satellite, ShieldCheck, Users } from "lucide-react";
+import { Route, Satellite, ShieldCheck } from "lucide-react";
 import { Section, SectionHeading } from "../ui/Section";
 
 const CAPABILITIES = [
   {
     icon: Satellite,
-    title: "AI-Powered Environmental Monitoring",
+    title: "Earth Observation",
     description:
       "Satellite analysis, NLP-driven document review, and multi-modal data synthesis for ecological assessment.",
     color: "text-green",
   },
   {
-    icon: ShieldCheck,
-    title: "Blockchain-Verified Credit Systems",
+    icon: Route,
+    title: "Material Flows",
     description:
-      "Seven-stage registry review pipeline backed by Regen Ledger on Cosmos SDK for transparent ecocredit issuance.",
+      "Overshoot traces extraction, trade, use and waste by place and material, with the source behind each figure.",
     color: "text-cyan",
   },
   {
-    icon: Users,
-    title: "Community-Governed Regenerative Finance",
+    icon: ShieldCheck,
+    title: "Verified Ecological Outcomes",
     description:
-      "Open governance through the $GAIA token, directing resources to maximally regenerative projects.",
+      "A seven-stage registry review pipeline on Regen Ledger turns ecological claims into credits anyone can check.",
     color: "text-amber",
   },
 ];
@@ -38,21 +38,23 @@ export function About() {
     <Section id="about" backdrop="/ocean.jpg">
       <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr]">
         <SectionHeading
-          label="What is Gaia AI?"
-          title="The intelligence layer for Earth's regenerative economy"
+          label="The lab"
+          title="An intelligence layer for the planet's living systems"
           intro={
             <>
               <p>
-                Gaia AI is a decentralized intelligence network that fuses
-                agentic AI with ecological blockchain infrastructure. Born from
-                a partnership with Regen Network, we operate at the intersection
-                of environmental monitoring, verified ecological credit systems,
-                and community-governed regenerative finance.
+                Markets, governments and land stewards decide the fate of
+                ecosystems with data that is scattered, delayed and hard to
+                trust. Gaia AI is building the layer that joins it up: agents
+                that read Earth observation, trade and waste accounts, and
+                ecological registries, then reason across all of them with the
+                source attached.
               </p>
               <p className="text-[15px]">
-                We work with international institutions and grassroots
-                communities alike — building the intelligence layer that makes
-                planetary healing economically viable.
+                The work grew out of our partnership with Regen Network and field
+                work with registries, conservation groups and grassroots
+                projects. Overshoot, the first public instrument, is live now.
+                The full layer is in private development.
               </p>
             </>
           }

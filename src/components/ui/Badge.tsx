@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 
 const statusStyles: Record<string, string> = {
+  Live: "text-green",
   Active: "text-green",
   "In Development": "text-amber",
   Complete: "text-muted",
@@ -8,7 +9,8 @@ const statusStyles: Record<string, string> = {
 };
 
 const dotStyles: Record<string, string> = {
-  Active: "bg-green motion-safe:animate-pulse",
+  Live: "bg-green motion-safe:animate-pulse",
+  Active: "bg-green",
   "In Development": "bg-amber",
   Complete: "border border-muted",
   Published: "border border-muted",
