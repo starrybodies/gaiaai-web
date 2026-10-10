@@ -6,13 +6,14 @@ import { GaianTimes } from "@/components/sections/GaianTimes";
 import { RegenDigest } from "@/components/sections/RegenDigest";
 import { Talks } from "@/components/sections/Talks";
 import { EOR } from "@/components/sections/EOR";
+import { KoguiTransmission } from "@/components/sections/KoguiTransmission";
 import { JsonLd } from "@/components/JsonLd";
 import { webPageSchema, faqPageSchema, videoObjectSchema, breadcrumbSchema } from "@/lib/structured-data";
 import { TALKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Knowledge & Media",
-  description: "Greenpaper, PROI framework, Symbiocenetic Futures, Gaian Times, Regen Digest, and talks.",
+  description: "The Kogui transmission on artificial intelligence, Greenpaper, PROI framework, Symbiocenetic Futures, Gaian Times, Regen Digest, and talks.",
   alternates: { canonical: "/knowledge" },
   openGraph: {
     title: "Knowledge & Media | Gaia AI",
@@ -38,6 +39,7 @@ export default function KnowledgePage() {
         <JsonLd key={talk.videoId} data={videoObjectSchema(talk)} />
       ))}
       <div className="pt-24" />
+      <KoguiTransmission />
       <Greenpaper />
       <PROI />
       <SymbioceneticFutures />
