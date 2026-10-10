@@ -148,3 +148,71 @@ export function videoObjectSchema(talk: (typeof TALKS)[number]) {
     },
   };
 }
+
+export function faqSchema(entries: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: entries.map((entry) => ({
+      "@type": "Question",
+      name: entry.question,
+      acceptedAnswer: { "@type": "Answer", text: entry.answer },
+    })),
+  };
+}
+
+/** A republished text: who spoke it, who translated it, and where it first appeared. */
+export function transmissionArticleSchema(params: {
+  headline: string;
+  alternativeHeadline: string;
+  description: string;
+  url: string;
+  image: string[];
+  datePublished: string;
+  wordCount: number;
+  keywords: string[];
+  authors: string[];
+  authorAffiliation: string;
+  translators: string[];
+  source: { name: string; url: string; publisher: string; datePublished: string };
+  about: { name: string; sameAs: string }[];
+  sections: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: params.headline,
+    alternativeHeadline: params.alternativeHeadline,
+    description: params.description,
+    url: `${SITE_URL}${params.url}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${params.url}` },
+    image: params.image.map((src) => `${SITE_URL}${src}`),
+    datePublished: params.datePublished,
+    dateModified: params.datePublished,
+    inLanguage: "en",
+    wordCount: params.wordCount,
+    keywords: params.keywords.join(", "),
+    articleSection: params.sections,
+    author: params.authors.map((name) => ({
+      "@type": "Person",
+      name,
+      affiliation: { "@type": "Organization", name: params.authorAffiliation },
+    })),
+    translator: params.translators.map((name) => ({ "@type": "Person", name })),
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/gaia-logo.png` },
+    },
+    isBasedOn: {
+      "@type": "CreativeWork",
+      name: params.source.name,
+      url: params.source.url,
+      datePublished: params.source.datePublished,
+      publisher: { "@type": "Organization", name: params.source.publisher },
+    },
+    about: params.about.map((thing) => ({ "@type": "Thing", ...thing })),
+    isAccessibleForFree: true,
+  };
+}

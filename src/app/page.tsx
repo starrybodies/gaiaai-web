@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Overshoot } from "@/components/sections/Overshoot";
+import { KoguiTransmission } from "@/components/sections/KoguiTransmission";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { TalkToGaia } from "@/components/sections/TalkToGaia";
 import { Ecosystem } from "@/components/sections/Ecosystem";
@@ -27,6 +28,7 @@ export default function Home() {
       <Hero />
       <About />
       <Overshoot />
+      <KoguiTransmission />
       <HowItWorks />
       <TalkToGaia />
       <Ecosystem />

@@ -192,6 +192,7 @@ export const FOOTER_LINKS = {
   ],
   resources: [
     { label: "Overshoot", href: "https://overshoot.gaiaai.xyz" },
+    { label: "Kogui AI Transmission", href: "/kogui-ai-transmission" },
     { label: "Encyclopedia of Regeneration", href: "https://eor.gaiaai.xyz" },
     { label: "Greenpaper", href: "https://github.com/gaiaaiagent/greenpaper" },
     { label: "The Gaian Times", href: "https://times.gaiaai.xyz" },

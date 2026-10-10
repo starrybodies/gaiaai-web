@@ -6,5 +6,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://gaiaai.xyz/ecosystem", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: "https://gaiaai.xyz/knowledge", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: "https://gaiaai.xyz/community", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    {
+      url: "https://gaiaai.xyz/kogui-ai-transmission",
+      lastModified: new Date("2026-10-10"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+      images: ["https://gaiaai.xyz/transmissions/kogui/og.jpg", "https://gaiaai.xyz/transmissions/kogui/slide-01.webp"],
+    },
   ];
 }
