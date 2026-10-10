@@ -1,8 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { KOGUI_PATH } from "@/content/kogui-guide";
 import { EARLY_ACCESS_HREF, OVERSHOOT_URL } from "@/lib/constants";
 import { Button } from "../ui/Button";
 import { useTheme } from "../ThemeProvider";
@@ -52,6 +54,23 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1200px] flex-1 items-center gap-8 px-6 pt-28 pb-10 lg:grid-cols-[1.05fr_1fr]">
         <div className="min-w-0">
+          <motion.div {...rise(0)} className="mb-8">
+            <Link
+              href={KOGUI_PATH}
+              className="group inline-flex max-w-full items-center gap-3 rounded-[3px] border border-green/30 bg-background/60 py-1.5 pl-1.5 pr-3.5 font-mono text-[13px] text-foreground backdrop-blur-md transition-all hover:border-green/60 hover:shadow-[0_0_24px_var(--color-green-dim)]"
+            >
+              <span className="shrink-0 rounded-[2px] bg-green px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-background">
+                New
+              </span>
+              <span className="min-w-0">An urgent message on AI from the Kogui people</span>
+              <ArrowRight
+                size={14}
+                aria-hidden
+                className="shrink-0 text-green transition-transform group-hover:translate-x-0.5"
+              />
+            </Link>
+          </motion.div>
+
           <motion.h1
             {...rise(0.1)}
             className="text-glow text-[clamp(1.9rem,4.4vw,3.6rem)] font-bold leading-[0.98] tracking-[-0.02em]"
