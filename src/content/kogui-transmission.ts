@@ -1,7 +1,7 @@
 // The full text of "An Urgent Message on Artificial Intelligence from the Kogui People",
-// reproduced verbatim from the Earth Care Network publication. Generated from the source
-// paragraphs; do not edit the wording. Each part matches one slide of the carousel, and
-// each `quote` is a sentence taken from that part.
+// reproduced verbatim from the English edition Movilizatorio published on 30 September 2026.
+// Generated from the source paragraphs; do not edit the wording. Each part matches one
+// slide of the carousel, and each `quote` is a sentence taken from that part.
 
 export type TransmissionPart = {
   id: string;
@@ -10,10 +10,24 @@ export type TransmissionPart = {
   paragraphs: string[];
 };
 
+// Original publication, with English and Spanish PDF editions
 export const KOGUI_SOURCE_URL =
+  "https://movilizatorio.org/un-mensaje-desde-el-corazon-del-mundo-sobre-la-inteligencia-artificial/";
+export const KOGUI_SOURCE_PUBLISHED = "2026-09-30";
+export const KOGUI_SOURCE_PDF_EN =
+  "https://movilizatorio.org/wp-content/uploads/2026/09/Gonawindua-Kogui-AI-Statement-.pdf";
+export const KOGUI_SOURCE_PDF_ES =
+  "https://movilizatorio.org/wp-content/uploads/2026/10/Gonawindua-Kogui-AI-Statement-ES.pdf";
+
+// Reposted by Earth Care Network, which is how Gaia AI first received it
+export const KOGUI_VIA_URL =
   "https://www.earthcare.network/enterprise/earth-care-network/journal/passing-along-an-urgent-message";
-export const KOGUI_SOURCE_PUBLISHED = "2026-10-01";
-export const KOGUI_WORD_COUNT = 4223;
+export const KOGUI_VIA_PUBLISHED = "2026-10-01";
+
+// A published response to the message
+export const KOGUI_RESPONSE_URL =
+  "https://hereditarychiefphillanejr.substack.com/p/to-our-honored-and-respected-relatives";
+export const KOGUI_WORD_COUNT = 4222;
 
 export const KOGUI_TRANSMISSION: {
   title: string;
@@ -287,7 +301,7 @@ export const KOGUI_TRANSMISSION: {
         "Some truly mean well and act in good faith.",
         "Others, quite the opposite.",
         "However the case may be, all of them demand of this technology results in accord with whatever their particular interest may be, nefarious or otherwise.",
-        "Results which it then attempts to produce in complex and novel ways, which sometimes express deception and an inclination toward self-preservation.",
+        "Results which it then attempts to produce in complex and novel ways, which express deception and an inclination toward self-preservation.",
         "At the foundational level, all of this requires resources.",
         "This is not conjecture.",
         "Your own governments have said it: that critical minerals and rare earths are essential to your most advanced technologies, and will only matter more as artificial intelligence transforms the modern cultural and economic space.",
