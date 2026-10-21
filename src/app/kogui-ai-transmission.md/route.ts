@@ -1,4 +1,10 @@
-import { KOGUI_SOURCE_URL, KOGUI_TRANSMISSION } from "@/content/kogui-transmission";
+import {
+  KOGUI_SOURCE_PDF_EN,
+  KOGUI_SOURCE_PDF_ES,
+  KOGUI_SOURCE_URL,
+  KOGUI_TRANSMISSION,
+  KOGUI_VIA_URL,
+} from "@/content/kogui-transmission";
 import { KOGUI_FAQ, KOGUI_GLOSSARY, KOGUI_PATH, KOGUI_SUMMARY } from "@/content/kogui-guide";
 
 export const dynamic = "force-static";
@@ -9,7 +15,7 @@ export function GET() {
   const md = [
     `# ${title}`,
     `> ${attribution}`,
-    `Source: [Earth Care Network, “Passing along an urgent message.”](${KOGUI_SOURCE_URL}), 1 October 2026.`,
+    `Source: [Movilizatorio, “Un mensaje desde el corazón del mundo sobre la inteligencia artificial”](${KOGUI_SOURCE_URL}), 30 September 2026 ([English PDF](${KOGUI_SOURCE_PDF_EN}), [Spanish PDF](${KOGUI_SOURCE_PDF_ES})). Spanish translation by José Manuel Mamatacán; English translation by Christian Horstmann. Received via [Earth Care Network](${KOGUI_VIA_URL}), 1 October 2026.`,
     `Web edition: https://gaiaai.xyz${KOGUI_PATH}`,
     `## Summary (by Gaia AI)`,
     KOGUI_SUMMARY,

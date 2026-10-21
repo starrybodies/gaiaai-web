@@ -95,7 +95,7 @@ export const KOGUI_FAQ: { question: string; answer: string }[] = [
   {
     question: "Who wrote it?",
     answer:
-      "It was assembled from the words of Mamo Vangelio Moscote Alberto and Saka Rosa Mamatacán Sauna of the Ezuama Mayor Kuamaka, of the Kággaba people of the Sierra Nevada de Gonawindua, Colombia. It was translated into Spanish by Jose Manuel Mamatacán and into English by Christian Horstmann.",
+      "It was assembled from the words of Mamo Vangelio Moscote Alberto and Saka Rosa Mamatacán Sauna of the Ezuama Mayor Kuamaka, of the Kággaba people of the Sierra Nevada de Gonawindua, Colombia. It was translated into Spanish by José Manuel Mamatacán and into English by Christian Horstmann.",
   },
   {
     question: "Who are the Kogui?",
@@ -125,11 +125,11 @@ export const KOGUI_FAQ: { question: string; answer: string }[] = [
   {
     question: "Is this the complete text?",
     answer:
-      "Yes. Gaia AI reproduces the full transmission unabridged and in its exact words. Only spacing was normalised where paragraphs had run together in the source. The introductory note by Earth Care Network, which first shared the message, is not part of the transmission and is not included.",
+      "Yes. Gaia AI reproduces the full transmission unabridged and in its exact words. The text follows the English edition published by Movilizatorio word for word.",
   },
   {
     question: "Where was it first published?",
     answer:
-      "Earth Care Network shared it on 1 October 2026 in a journal post titled “Passing along an urgent message.” Gaia AI links to that original publication.",
+      "Movilizatorio published it on 30 September 2026 as “Un mensaje desde el corazón del mundo sobre la inteligencia artificial,” with the full text in English and Spanish. Earth Care Network reposted it on 1 October 2026, and Gaia AI received it from there.",
   },
 ];

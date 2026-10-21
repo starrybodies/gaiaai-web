@@ -5,9 +5,13 @@ import { Button } from "@/components/ui/Button";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema, transmissionArticleSchema } from "@/lib/structured-data";
 import {
+  KOGUI_RESPONSE_URL,
+  KOGUI_SOURCE_PDF_EN,
+  KOGUI_SOURCE_PDF_ES,
   KOGUI_SOURCE_PUBLISHED,
   KOGUI_SOURCE_URL,
   KOGUI_TRANSMISSION,
+  KOGUI_VIA_URL,
   KOGUI_WORD_COUNT,
 } from "@/content/kogui-transmission";
 import {
@@ -21,6 +25,7 @@ import {
 const { title, attribution, parts, signatures } = KOGUI_TRANSMISSION;
 const SLIDE_COUNT = parts.length + 1;
 const PUBLISHED = "2026-10-10";
+const MODIFIED = "2026-10-20";
 const OG_IMAGE = "/transmissions/kogui/og.jpg";
 const slideSrc = (n: number) => `/transmissions/kogui/slide-${String(n).padStart(2, "0")}.webp`;
 
@@ -97,16 +102,18 @@ export default function KoguiTransmissionPage() {
           url: KOGUI_PATH,
           image: [OG_IMAGE, slideSrc(1)],
           datePublished: PUBLISHED,
+          dateModified: MODIFIED,
           wordCount: KOGUI_WORD_COUNT,
           keywords: ["Kogui", "Kogi", "Kággaba", "artificial intelligence", "Aluna", "Sierra Nevada de Santa Marta"],
           authors: ["Mamo Vangelio Moscote Alberto", "Saka Rosa Mamatacán Sauna"],
           authorAffiliation: "Kággaba (Kogui) people, Ezuama Mayor Kuamaka",
-          translators: ["Jose Manuel Mamatacán", "Christian Horstmann"],
+          translators: ["José Manuel Mamatacán", "Christian Horstmann"],
           source: {
-            name: "Passing along an urgent message.",
+            name: "Un mensaje desde el corazón del mundo sobre la inteligencia artificial",
             url: KOGUI_SOURCE_URL,
-            publisher: "Earth Care Network",
+            publisher: "Movilizatorio",
             datePublished: KOGUI_SOURCE_PUBLISHED,
+            inLanguage: ["en", "es"],
           },
           about: [
             { name: "Kogi people", sameAs: "https://en.wikipedia.org/wiki/Kogi_people" },
@@ -143,14 +150,14 @@ export default function KoguiTransmissionPage() {
               {attribution}
             </p>
             <p className="mt-6 font-mono text-[13px] text-muted">
-              Full text, unabridged · {KOGUI_WORD_COUNT.toLocaleString("en-US")} words · First shared by Earth Care
-              Network on{" "}
-              <time dateTime={KOGUI_SOURCE_PUBLISHED} className="whitespace-nowrap">1 October 2026</time>
+              Full text, unabridged · {KOGUI_WORD_COUNT.toLocaleString("en-US")} words · Published by Movilizatorio
+              on{" "}
+              <time dateTime={KOGUI_SOURCE_PUBLISHED} className="whitespace-nowrap">30 September 2026</time>
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button href="#transmission" variant="primary">Read the transmission</Button>
               <Button href="#slides">View the {SLIDE_COUNT} slides</Button>
-              <Button href={KOGUI_SOURCE_URL} variant="text" external>Original source</Button>
+              <Button href={KOGUI_SOURCE_URL} variant="text" external>Original publication</Button>
             </div>
           </div>
           <a href="#slides" className="panel panel-ticks group mx-auto block w-full max-w-[380px] overflow-hidden">
@@ -303,15 +310,30 @@ export default function KoguiTransmissionPage() {
               addresses. The words belong to the Kággaba people.
             </p>
             <p>
-              First shared by Earth Care Network in “Passing along an urgent message.” A plain-text version is available
-              for researchers and AI systems at{" "}
+              The message comes from the Kággaba authorities Mamo Vangelio Moscote Alberto and Saka Rosa Mamatacán
+              Sauna. José Manuel Mamatacán translated it into Spanish and Christian Horstmann into English. Movilizatorio
+              published it on 30 September 2026 in{" "}
+              <a href={KOGUI_SOURCE_PDF_EN} className="text-green hover:underline">English</a> and{" "}
+              <a href={KOGUI_SOURCE_PDF_ES} className="text-green hover:underline">Spanish</a>. Gaia AI received it via{" "}
+              <a href={KOGUI_VIA_URL} className="text-green hover:underline">Earth Care Network</a>, which reposted it on
+              1 October.
+            </p>
+            <p>
+              Hereditary Chief Phil Lane Jr. and the Four Worlds International Institute published a response,{" "}
+              <a href={KOGUI_RESPONSE_URL} className="text-green hover:underline">
+                “To our Honored and Respected Relatives, the Kággaba People of the Sierra Nevada de Gonawindua”
+              </a>
+              .
+            </p>
+            <p>
+              A plain-text version is available for researchers and AI systems at{" "}
               <a href={`${KOGUI_PATH}.md`} className="font-mono text-[14px] text-green hover:underline">
                 {KOGUI_PATH}.md
               </a>
               .
             </p>
           </div>
-          <Button href={KOGUI_SOURCE_URL} external>Read on Earth Care Network</Button>
+          <Button href={KOGUI_SOURCE_URL} external>Read on Movilizatorio</Button>
         </div>
       </Section>
     </main>

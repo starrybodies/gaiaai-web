@@ -169,12 +169,13 @@ export function transmissionArticleSchema(params: {
   url: string;
   image: string[];
   datePublished: string;
+  dateModified?: string;
   wordCount: number;
   keywords: string[];
   authors: string[];
   authorAffiliation: string;
   translators: string[];
-  source: { name: string; url: string; publisher: string; datePublished: string };
+  source: { name: string; url: string; publisher: string; datePublished: string; inLanguage?: string[] };
   about: { name: string; sameAs: string }[];
   sections: string[];
 }) {
@@ -188,7 +189,7 @@ export function transmissionArticleSchema(params: {
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${params.url}` },
     image: params.image.map((src) => `${SITE_URL}${src}`),
     datePublished: params.datePublished,
-    dateModified: params.datePublished,
+    dateModified: params.dateModified ?? params.datePublished,
     inLanguage: "en",
     wordCount: params.wordCount,
     keywords: params.keywords.join(", "),
@@ -210,6 +211,7 @@ export function transmissionArticleSchema(params: {
       name: params.source.name,
       url: params.source.url,
       datePublished: params.source.datePublished,
+      ...(params.source.inLanguage ? { inLanguage: params.source.inLanguage } : {}),
       publisher: { "@type": "Organization", name: params.source.publisher },
     },
     about: params.about.map((thing) => ({ "@type": "Thing", ...thing })),

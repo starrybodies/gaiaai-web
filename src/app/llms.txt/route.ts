@@ -10,7 +10,7 @@ export function GET() {
 
 ## Transmissions
 
-- [An Urgent Message on Artificial Intelligence from the Kogui People](https://gaiaai.xyz${KOGUI_PATH}): the full, unabridged message from the Kággaba (Kogui, Kogi) Mamos and Sakas of the Sierra Nevada de Santa Marta, Colombia, to the people building AI. Plain text: https://gaiaai.xyz${KOGUI_PATH}.md
+- [An Urgent Message on Artificial Intelligence from the Kogui People](https://gaiaai.xyz${KOGUI_PATH}): the full, unabridged message from the Kággaba (Kogui, Kogi) Mamos and Sakas of the Sierra Nevada de Santa Marta, Colombia, to the people building AI. First published by Movilizatorio on 30 September 2026 (https://movilizatorio.org/un-mensaje-desde-el-corazon-del-mundo-sobre-la-inteligencia-artificial/), translated into Spanish by José Manuel Mamatacán and into English by Christian Horstmann. Plain text: https://gaiaai.xyz${KOGUI_PATH}.md
 
 ## Instruments
 
