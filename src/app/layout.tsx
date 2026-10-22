@@ -90,6 +90,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <script defer src="https://noog.symbai.studio/portfolio-metrics.js" />
         <style dangerouslySetInnerHTML={{ __html: `html{scroll-behavior:auto}` }} />
         <script
           dangerouslySetInnerHTML={{
